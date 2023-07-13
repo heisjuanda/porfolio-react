@@ -1,0 +1,49 @@
+.error-section {
+    width: 100%;
+    height: 100dvh;
+    background-color: white;
+}
+
+.error-section__go-back {
+    position: fixed;
+    z-index: 200;
+    top: 5%;
+    left: 2%;
+}
+
+.error-section__animation {
+    display: grid;
+    height: 100vh;
+    min-height: 200px;
+    max-width: 5000px;
+    place-items: center;
+    overflow: hidden;
+}
+
+.error-page {
+    height: 100vh;
+}
+
+.error-section__go-back>button {
+    border: 1px solid black;
+    background-color: transparent;
+    color: black;
+    padding: 5%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8%;
+    min-width: 100px;
+    width: 15vw;
+    max-width: 110px;
+    border-radius: clamp(18px, 2vw, 20px);
+    font-size: clamp(18px, 2vw, 20px);
+    cursor: pointer;
+    font-family: 'Brown';
+    transition: 0.3s;
+}
+
+.error-section__go-back>button:hover {
+    color: white;
+    background-color: black;
+}

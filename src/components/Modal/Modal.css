@@ -1,0 +1,126 @@
+@keyframes showModalAnimation {
+    from {
+        opacity: 0;
+        transform: translateY(10%);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0%);
+    }
+}
+
+.modal-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 5000;
+
+    display: grid;
+    place-items: center;
+
+    width: 100%;
+    height: 0%;
+}
+
+.animation-show {
+    animation: showModalAnimation 0.5s ease-in-out normal forwards;
+}
+
+.animation-hide {
+    animation: showModalAnimation 0.5s ease-in-out reverse forwards;
+}
+
+.modal-body {
+    position: relative;
+
+    width: 40vw;
+    min-width: 260px;
+    height: 6vw;
+    min-height: 40px;
+
+    border-radius: 20px;
+
+    display: flex;
+    flex-direction: row;
+    gap: 10%;
+    align-items: center;
+
+    background-color: rgba(0, 0, 0, 0.8);
+
+    backdrop-filter: blur(5px);
+
+    margin-top: 3%;
+    padding: 2% 5% 2% 5%;
+
+    border: 1px solid black;
+}
+
+.modal-close {
+    position: absolute;
+    top: 5%;
+    right: 2%;
+
+    display: flex;
+    justify-content: center;
+
+    width: 25px;
+    height: 25px;
+
+    background-color: transparent;
+    border: 1px solid transparent;
+    border-radius: 50%;
+
+    color: white;
+
+    transition: 0.3s;
+
+    cursor: pointer;
+}
+
+.modal-close:hover {
+    background-color: rgba(255, 255, 255, 0.5);
+
+    color: black;
+}
+
+.modal-close>span {
+    border: 1px solid transparent;
+}
+
+.modal-close>span>i {
+    font-size: 20px;
+}
+
+.modal-body__symbol>span>i {
+    color: white;
+
+    font-size: clamp(30px,4vw,40px);
+}
+
+.modal-body__title>h2 {
+    color: white;
+
+    font-size: clamp(20px, 2.5vw, 25px);
+    font-family: 'Brown';
+}
+
+.modal-body__message>p {
+    color: white;
+
+    font-size: clamp(16px, 1.8vw, 18px);
+    font-family: 'Cormorant Garamond';
+}
+
+@media screen and (max-width:680px) {
+    .modal-body {
+        width: 40vw;
+        min-width: 260px;
+        height: 22vw;
+        min-height: 143px;
+    
+        flex-direction: column;
+        gap: 5%;
+        
+        margin-top: 5%;
+    }
+}

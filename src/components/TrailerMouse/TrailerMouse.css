@@ -1,0 +1,53 @@
+body:hover>#trailer {
+    opacity: 1;
+}
+
+#trailer {
+    height: 80px;
+    width: 80px;
+    background-color: white;
+    border-radius: 100px;
+
+    position: fixed;
+    left: 0px;
+    top: 0px;
+    z-index: 10000;
+
+    transform: scale(0);
+
+    pointer-events: none;
+    opacity: 1;
+    border: 5px solid transparent;
+
+    transition: opacity 500ms ease, border 500ms ease, background-color 500ms;
+
+    display: grid;
+    place-items: center;
+    mix-blend-mode: difference;
+}
+
+.selecting-btn {
+    border: 5px solid white;
+    background-color: red;
+}
+
+#trailer>span {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#trailer:not([data-type=""])>#trailer-icon {
+    opacity: 1;
+}
+
+#trailer-icon {
+    line-height: 4px;
+    font-size: 30px;
+    opacity: 1;
+    transition: opacity 400ms ease;
+}
+
+.fa-arrow-up,.fa-chevron-up, .fa-hand-point-up,.fa-angle-up,.fa-angle-down{
+    transform: rotate(30deg);
+}
