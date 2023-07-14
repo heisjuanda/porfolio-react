@@ -1,23 +1,23 @@
 @font-face {
-    font-family: 'cotham';
-    src: url('./CothamSans.ttf') format('truetype');
-    font-weight: normal;
+    font-family: 'cormorant';
+    src: url('./Cormorant.ttf') format('truetype');
+    font-weight: lighter;
     font-style: normal;
     font-display: swap;
 }
 
 @font-face {
-    font-family: 'nimbus';
-    src: url('./nimbus-sans-l_bold.ttf') format('truetype');
-    font-weight: normal;
+    font-family: 'seasons';
+    src: url('./TheSeasons.ttf') format('truetype');
+    font-weight: lighter;
     font-style: normal;
     font-display: swap;
 }
 
 @font-face {
     font-family: 'aileron';
-    src: url('./aileron.ultralight.ttf') format('truetype');
-    font-weight: normal;
+    src: url('./Aileron.ttf') format('truetype');
+    font-weight: lighter;
     font-style: normal;
     font-display: swap;
 }

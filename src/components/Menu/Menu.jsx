@@ -120,7 +120,7 @@ export const Menu = () => {
                                         handleCloseMenu()
                                     }}
                                 >
-                                    HOME
+                                    Home
                                 </span>
                             </p>
                         </li>
@@ -134,7 +134,7 @@ export const Menu = () => {
                                         handleCloseMenu()
                                     }}
                                 >
-                                    ABOUT
+                                    About
                                 </span>
                             </p>
                         </li>
@@ -148,7 +148,7 @@ export const Menu = () => {
                                         handleCloseMenu()
                                     }}
                                 >
-                                    WORK
+                                    Work
                                 </span>
                             </p>
                         </li>
@@ -162,7 +162,7 @@ export const Menu = () => {
                                         handleCloseMenu()
                                     }}
                                 >
-                                    TALK
+                                    Talk
                                 </span>
                             </p>
                         </li>
@@ -175,7 +175,7 @@ export const Menu = () => {
                                         handleCloseMenu()
                                     }}
                                 >
-                                    CLOSE
+                                    Close
                                 </span>
                             </p>
                         </li>

@@ -16,6 +16,7 @@ export const Talk = () => {
 
     const [showModal, setShowModal] = useState(false);
     const [modalOptions, setModalOptions] = useState({});
+    const [currentWidth, setCurrentWidth] = useState(0);
 
     const {
         register,
@@ -70,30 +71,34 @@ export const Talk = () => {
     const handleErrors = useCallback((error) => {
         let field = '';
         let message = '';
-
-        if (error.Name) {
-            message = findErrorType(error.Name.type, 2, 30, 'Symbols not allowed');
-            field = 'Name';
-        } else if (error.Email) {
-            message = findErrorType(error.Email.type, 5, 100, "It's not a valid email");
-            field = 'Email';
-        } else if (error.Subject) {
-            message = findErrorType(error.Subject.type, 2, 50, 'Symbols not allowed');
-            field = 'Subject';
-        } else {
-            message = findErrorType(error.Message.type, 5, 500, 'Symbols not allowed');
-            field = 'Message';
+        if (error) {
+            if (error.Name) {
+                message = findErrorType(error.Name.type, 2, 30, 'Symbols not allowed');
+                field = 'Name';
+            } else if (error.Email) {
+                message = findErrorType(error.Email.type, 5, 100, "It's not a valid email");
+                field = 'Email';
+            } else if (error.Subject) {
+                message = findErrorType(error.Subject.type, 2, 50, 'Symbols not allowed');
+                field = 'Subject';
+            } else if (error.Message) {
+                message = findErrorType(error.Message.type, 5, 500, 'Symbols not allowed');
+                field = 'Message';
+            }
+            setShowModal(true);
+            setModalOptions(() => {
+                return {
+                    title: field ? `${field} is incorrect` : `Try again`,
+                    message: message,
+                    type: 'info'
+                };
+            });
         }
-
-        setShowModal(true);
-        setModalOptions(() => {
-            return {
-                title: `${field} is incorrect`,
-                message: message,
-                type: 'info'
-            };
-        });
     }, [findErrorType]);
+
+    useEffect(() => {
+        setCurrentWidth(window.innerWidth);
+    }, []);
 
     useEffect(() => {
         let scroll = null;
@@ -120,14 +125,19 @@ export const Talk = () => {
             if (scroll) {
                 scroll.update();
             }
+            setCurrentWidth(window.innerWidth);
         };
 
         window.addEventListener('resize', handleResize);
+        if (currentWidth < 800) {
+            scroll.destroy();
+        }
         return () => {
             window.removeEventListener('resize', handleResize);
             scroll.destroy();
         };
-    }, []);
+
+    }, [currentWidth]);
 
     return (
         <>

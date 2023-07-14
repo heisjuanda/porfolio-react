@@ -109,7 +109,7 @@
 .text-link__nav {
     color: white;
     font-size: clamp(40px, 7vw, 70px);
-    font-family: 'aileron';
+    font-family: 'seasons';
     text-align: center;
     opacity: 0;
     transition: 0.3s;
@@ -132,7 +132,7 @@
 
 #text-close__nav {
     font-size: clamp(18px, 2vw, 20px);
-    font-family: 'aileron';
+    font-family: 'cormorant';
 }
 
 @media screen and (max-width:530px) {

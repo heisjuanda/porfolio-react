@@ -26,14 +26,15 @@
 
     background-color: white;
 
-    width: 100vw;
+    width: 97.9vw;
 
     border: 1px solid transparent;
 }
 
 .talk-section__title>h2 {
-    font-size: clamp(30px, 10vw, 100px);
-    font-family: 'nimbus';
+    font-size: clamp(30px, 10vw, 80px);
+    font-family: 'seasons';
+    font-weight: 100;
     text-align: center;
 }
 
@@ -42,7 +43,7 @@
     z-index: 100;
 
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     gap: 5%;
     justify-content: center;
 
@@ -53,7 +54,9 @@
 }
 
 .social-media {
-    width: 20%;
+    width: 90%;
+    margin-inline: auto;
+    margin-bottom: 4%;
 }
 
 .social-media__container {
@@ -65,13 +68,16 @@
 .social-media__container>ol {
     padding: 0;
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 50%;
 }
 
 .social-link {
-    font-size: clamp(20px, 3vw, 30px);
-    font-weight: 500;
-    font-family: 'aileron';
+    font-size: 20px;
+    font-family: 'seasons';
+    font-weight: 100;
     text-align: center;
     position: relative;
     z-index: 2;
@@ -80,7 +86,7 @@
 .social-link>div {
     position: absolute;
     z-index: 1;
-    border-bottom: 0.1vw solid black;
+    border-bottom: 1px solid black;
     width: 0%;
     height: 0%;
     bottom: 0;
@@ -96,7 +102,8 @@
 }
 
 .form-container {
-    width: 50%;
+    width: 90%;
+    margin-inline: auto;
 }
 
 .name-form__container {
@@ -144,7 +151,8 @@
     position: relative;
     display: flex;
     flex-direction: column;
-    margin-bottom: 10%;
+
+    margin-bottom: 7%;
 }
 
 .name-form__container>label,
@@ -156,7 +164,7 @@
     left: 10%;*/
     text-align: center;
     font-size: clamp(20px, 2.5vw, 25px);
-    font-family: 'cotham';
+    font-family: 'cormorant';
 }
 
 input:-webkit-autofill,
@@ -171,13 +179,16 @@ input:-webkit-autofill:active {
 .subject-form__container>input,
 .message-form__container>textarea {
     font-size: clamp(12px, 2vw, 18px);
-    font-family: 'aileron';
-    font-weight: 700;
+    font-family: 'cormorant';
+
     border: none;
-    border-bottom: 1px solid black;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.4);
+
     padding: 2%;
-    width: 80%;
     margin-inline: auto;
+
+    width: 80%;
+
     resize: none;
 }
 
@@ -194,6 +205,7 @@ input:-webkit-autofill:active {
 .subject-form__container>input:focus,
 .message-form__container>textarea:focus {
     outline: none;
+    border-bottom: 1px solid black;
 }
 
 .send-form__container {
@@ -206,17 +218,17 @@ input:-webkit-autofill:active {
     color: black;
     background-color: transparent;
 
-    padding: 1%;
+    padding: 0.5%;
 
     border-radius: 30px;
 
     font-size: clamp(18px, 2vw, 20px);
-    font-family: 'aileron';
+    font-family: 'cormorant';
 
     cursor: pointer;
 
     width: 15%;
-    max-width: 150px;
+    max-width: 120px;
     min-width: 110px;
 
     transition: 0.3s;
@@ -236,18 +248,6 @@ input:-webkit-autofill:active {
         align-items: center;
     }
 
-    .social-media__container>ol {
-        display: flex;
-        flex-direction: row;
-        gap: 25%;
-
-        justify-content: center;
-        align-items: center;
-
-        margin-inline: auto;
-        margin-bottom: 20%;
-    }
-
     .social-media__container>ol>li {
         width: 120%;
     }
@@ -258,8 +258,16 @@ input:-webkit-autofill:active {
     }
 }
 
+@media screen and (max-width:800px) {
+    .talk-section {
+        overflow-y: hidden;
+        overflow-x: hidden;
+
+    }
+}
+
 @media screen and (max-width:700px) {
-    .talk-section__content{
+    .talk-section__content {
         min-height: 70vh;
     }
 }
@@ -269,6 +277,18 @@ input:-webkit-autofill:active {
     .form-container {
         width: 80%;
         min-width: 320px;
+    }
+
+    .social-media__container>ol {
+        display: flex;
+        flex-direction: row;
+        gap: 25%;
+
+        justify-content: center;
+        align-items: center;
+
+        margin-inline: auto;
+        margin-bottom: 4%;
     }
 
     .form-container>form {
@@ -287,7 +307,7 @@ input:-webkit-autofill:active {
         margin-left: 0;
     }
 
-    .talk-section__content{
+    .talk-section__content {
         margin-top: 5%;
     }
 }

@@ -43,7 +43,7 @@
 
     font-size: clamp(18px,2.3vw,23px);
     font-weight: 100;
-    font-family: 'aileron';
+    font-family: 'cormorant';
 }
 
 .home-section__title>img {
@@ -58,10 +58,24 @@
 .home-section__title #my-role {
     bottom: 8%;
     left: 5%;
+
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;    
 }
 
-.home-section__title #my-role i {
-    color: antiquewhite;
+.home-section__title #my-role span {
+    width: 2.3vw;
+    max-width: 23px;
+    min-width: 18px;
+
+    display: grid;
+    place-items: center;
+}
+
+.home-section__title #my-role img {
+    width: 100%;
 }
 
 .home-section__title #current-year {
@@ -73,20 +87,23 @@
     width: 50px;
     height: 50px;
 
+    display: grid;
+    place-items: center;
+
     bottom: 5%;
     right: 2%;
 }
 
-.home-section__title #go-to__about>i {
+.home-section__title #go-to__about>img {
     transform: rotate(210deg);
 
-    font-size: clamp(25px,3vw,30px);
+    width: 30px;
 
     transition: 0.5s;
     cursor: pointer;
 }
 
-.home-section__title #go-to__about:hover>i {
+.home-section__title #go-to__about:hover>img {
     transform: rotate(-90deg);
 }
 
@@ -105,9 +122,8 @@
 
     text-align: center;
     font-size: clamp(20px,8vw,80px);
-    font-family: 'nimbus';
-    font-weight: 700;
-
+    font-family: 'seasons';
+    font-weight: 100;
     overflow: hidden;
 }
 

@@ -26,11 +26,6 @@ body:hover>#trailer {
     mix-blend-mode: difference;
 }
 
-.selecting-btn {
-    border: 5px solid white;
-    background-color: red;
-}
-
 #trailer>span {
     display: flex;
     justify-content: center;
@@ -44,6 +39,10 @@ body:hover>#trailer {
 #trailer-icon {
     line-height: 4px;
     font-size: 30px;
+
+    width: 40px;
+    height: 40px;
+
     opacity: 1;
     transition: opacity 400ms ease;
 }

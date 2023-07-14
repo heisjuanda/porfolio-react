@@ -82,9 +82,7 @@ export const Projects = (props) => {
                         <div className='container__des-see'>
                             <div>
                                 <p>
-                                    <b>
-                                        {description}
-                                    </b>
+                                    {description}
                                 </p>
                             </div>
                             <button className='interactable' data-type='button-click' onClick={handleSeeProject}>

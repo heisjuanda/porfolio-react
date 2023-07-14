@@ -28,7 +28,8 @@
 
 .section-title>h1 {
     font-size: clamp(12px, 12vw, 200px);
-    font-family: 'nimbus';
+    font-family: 'seasons';
+    font-weight: 100;
     text-align: center;
 
     overflow: hidden;
@@ -87,7 +88,6 @@
     position: absolute;
     left: 100px;
     top: -25px;
-    opacity: 0.7;
     transition: 0.3s;
 }
 
@@ -98,7 +98,7 @@
     transform-origin: 0 100px;
     top: 0;
     font-size: 22px;
-    font-family: 'cotham';
+    font-family: 'cormorant';
     font-weight: 100;
 }
 
@@ -144,6 +144,7 @@
 .section-content__about-me p {
     font-size: clamp(20px, 2.5vw, 25px);
     font-family: 'aileron';
+    font-weight: 100;
 }
 
 .myDescription-text>div{

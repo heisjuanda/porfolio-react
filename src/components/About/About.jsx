@@ -75,7 +75,7 @@ export const About = () => {
                     divElement.style.backgroundSize = '100%';
                 }
             }
-        }, 40);
+        }, 30);
 
         const handleScroll = debounce((instance) => {
             if (window.innerWidth > 500) {

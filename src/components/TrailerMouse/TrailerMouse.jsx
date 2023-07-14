@@ -1,6 +1,10 @@
 import PropTypes from 'prop-types';
 import { useEffect, useRef, useState, useCallback } from 'react';
 
+import defaultIcon from '../../assets/images/icons/defaultIcon.png';
+import arrowRight from '../../assets/images/icons/arrowRight.png';
+import arrowDownB from '../../assets/images/icons/arrowDownB.png';
+
 import './TrailerMouse.css';
 
 export const TrailerMouse = (props) => {
@@ -19,18 +23,16 @@ export const TrailerMouse = (props) => {
 
     const getTrailerClass = useCallback(type => {
         const options = {
-            "continue": "fa-solid fa-arrow-right",
-            "continue-Mobile": "fa-solid fa-arrow-down",
-            "menu-open": "fa-solid fa-angle-up",
-            "menu-close": "fa-solid fa-angle-down",
-            "default": "",
+            "continue": arrowRight,
+            "continue-Mobile": arrowDownB,
+            "default": defaultIcon,
         };
         return options[type] || options['default'];
     }, []);
 
     const animateTrailer = useCallback((e, interacting) => {
-        const x = e.clientX - (trailer.current.offsetWidth / (interacting ? 1.5 : 2)),
-            y = e.clientY - (trailer.current.offsetHeight / (interacting ? 1.5 : 2));
+        const x = e.clientX - (trailer.current.offsetWidth / 2),
+            y = e.clientY - (trailer.current.offsetHeight / 2);
         if (window.innerWidth < 550) {
             setMaxSize(0.63);
             setMinSize(0.15);//0.15
@@ -78,9 +80,16 @@ export const TrailerMouse = (props) => {
                 trailer.current.dataset.type = interacting ? interactable.dataset.type : "";
 
                 if (interacting && icon.current) {
-                    icon.current.setAttribute("class", getTrailerClass(interactable.dataset.type));
+                    const newSrc = getTrailerClass(interactable.dataset.type);
+                    if (newSrc === defaultIcon) {
+                        icon.current.setAttribute("src", newSrc);
+                        icon.current.style.opacity = 0;
+                    } else {
+                        icon.current.setAttribute("src", newSrc);
+                        icon.current.style.opacity = 1;
+                    }
                 } else {
-                    icon.current.setAttribute("class", '');
+                    icon.current.setAttribute("src", defaultIcon);
                 }
 
                 if (trailer.current.dataset.type === 'button-click' ||
@@ -92,6 +101,7 @@ export const TrailerMouse = (props) => {
                     trailer.current.style.backgroundColor = 'white';
                 }
             }
+
             return () => {
                 window.onmousemove = null;
             }
@@ -106,7 +116,10 @@ export const TrailerMouse = (props) => {
                     id="trailer"
                     style={{ opacity: opacity, transition: `opacity ${transition}s` }}
                 >
-                    <span><i ref={icon} className="" id="trailer-icon"></i></span>
+                    <span>
+                        {/*<i ref={icon} className="" id="trailer-icon"></i>*/}
+                        <img ref={icon} id="trailer-icon" src={''} alt="icon for trailer mouse" />
+                    </span>
                 </div>
             ) : null}
         </>

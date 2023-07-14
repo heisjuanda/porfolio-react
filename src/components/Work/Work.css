@@ -36,7 +36,8 @@
 
 .work-section__title h1 {
     font-size: clamp(60px, 8vw, 200px);
-    font-family: 'nimbus';
+    font-family: 'seasons';
+    font-weight: 100;
     display: flex;
     justify-content: center;
     align-items: center;

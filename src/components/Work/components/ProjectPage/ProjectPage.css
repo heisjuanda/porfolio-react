@@ -40,7 +40,7 @@
 .project-page__section-title>div>h2 {
     color: white;
     font-size: clamp(50px, 8vw, 80px);
-    font-family: 'nimbus';
+    font-family: 'seasons';
     font-weight: 300;
 
     margin: 0;

@@ -35,8 +35,8 @@
 
 .project-section__title h2 {
     font-size: clamp(80px, 100vh, 150px);
-    font-weight: 300;
-    font-family: 'cotham';
+    font-weight: 100;
+    font-family: 'cormorant';
     position: absolute;
     top: 0;
 }
@@ -104,7 +104,7 @@
 .container__title-date h2 {
     font-size: clamp(40px, 5vw, 50px);
     font-weight: 400;
-    font-family: 'aileron';
+    font-family: 'seasons';
 }
 
 .content-description__container {
@@ -152,8 +152,8 @@
 
     transition: 0.3s;
 
-    font-size: clamp(16px, 1.8vw, 18px);
-    font-family: 'aileron';
+    font-size: clamp(18px, 2vw, 20px);
+    font-family: 'cormorant';
 }
 
 .container__des-see button:hover {
