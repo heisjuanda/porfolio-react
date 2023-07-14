@@ -9,7 +9,7 @@ export const Intro = () => {
     useEffect(() => {
         setTimeout(() => {
             history('/home');
-        }, 1200);
+        }, 2001);
     }, []);
 
     return (
@@ -19,7 +19,7 @@ export const Intro = () => {
                     PORTFOLIO
                 </h1>
                 <p>
-                    {"by He's JuanDa"}
+                    {"by @heisjuanda"}
                 </p>
             </div>
         </>

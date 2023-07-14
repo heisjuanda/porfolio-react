@@ -1,8 +1,6 @@
 :root {
  --main-background: white;
- --intro-background: black;
- --intro-title: white;
- --intro-by: white;
+ --secundary-background: rgb(15,15,15);
 }
 
 html, body, #root {

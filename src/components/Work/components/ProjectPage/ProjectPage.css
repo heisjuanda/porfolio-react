@@ -9,7 +9,7 @@
 }
 
 .project-page__section {
-    background-color: rgb(15, 15, 15);
+    background-color: var(--secundary-background);
     border: 1px solid transparent;
 
     overflow-x: hidden;

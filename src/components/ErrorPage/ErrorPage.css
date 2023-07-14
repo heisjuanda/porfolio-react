@@ -1,7 +1,7 @@
 .error-section {
     width: 100%;
     height: 100dvh;
-    background-color: white;
+    background-color: var(--main-background);
 }
 
 .error-section__go-back {
@@ -13,10 +13,12 @@
 
 .error-section__animation {
     display: grid;
+    place-items: center;
+
     height: 100vh;
     min-height: 200px;
     max-width: 5000px;
-    place-items: center;
+
     overflow: hidden;
 }
 
@@ -28,22 +30,40 @@
     border: 1px solid black;
     background-color: transparent;
     color: black;
-    padding: 5%;
+    border-radius: clamp(18px, 2vw, 20px);
+
+    padding: 2%;
+
     display: flex;
     align-items: center;
     justify-content: center;
     gap: 8%;
-    min-width: 100px;
+
+    min-width: 90px;
     width: 15vw;
-    max-width: 110px;
-    border-radius: clamp(18px, 2vw, 20px);
+    max-width: 105px;
+
     font-size: clamp(18px, 2vw, 20px);
     cursor: pointer;
-    font-family: 'Brown';
+    font-family: 'cormorant';
     transition: 0.3s;
 }
 
 .error-section__go-back>button:hover {
     color: white;
     background-color: black;
+}
+
+.error-section__transition {
+    position: absolute;
+    left: 0;
+    top: 0;
+    z-index: 201;
+
+    width: 0vw;
+    height: 100vh;
+
+    transition: 0.9s;
+
+    background-color: var(--secundary-background);
 }

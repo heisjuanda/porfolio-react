@@ -2,6 +2,7 @@
     from {
         opacity: 0;
     }
+
     to {
         opacity: 1;
     }
@@ -11,6 +12,7 @@
     from {
         transform: translateY(20vw);
     }
+
     to {
         transform: translateY(0vw);
     }
@@ -19,7 +21,7 @@
 .home-section {
     overflow: hidden;
 
-    background-color: rgb(15, 15, 15);
+    background-color: var(--secundary-background);
 }
 
 .home-section>main {
@@ -41,7 +43,7 @@
 
     color: white;
 
-    font-size: clamp(18px,2.3vw,23px);
+    font-size: clamp(18px, 2.3vw, 23px);
     font-weight: 100;
     font-family: 'cormorant';
 }
@@ -62,7 +64,7 @@
     display: flex;
     flex-direction: row;
     justify-content: center;
-    align-items: center;    
+    align-items: center;
 }
 
 .home-section__title #my-role span {
@@ -79,7 +81,7 @@
 }
 
 .home-section__title #current-year {
-   bottom: 4%;
+    bottom: 4%;
     left: 5%;
 }
 
@@ -97,7 +99,9 @@
 .home-section__title #go-to__about>img {
     transform: rotate(210deg);
 
-    width: 30px;
+    width: 3vw;
+    min-width: 25px;
+    max-width: 30px;
 
     transition: 0.5s;
     cursor: pointer;
@@ -121,7 +125,7 @@
     color: white;
 
     text-align: center;
-    font-size: clamp(20px,8vw,80px);
+    font-size: clamp(20px, 8vw, 80px);
     font-family: 'seasons';
     font-weight: 100;
     overflow: hidden;

@@ -24,7 +24,7 @@
     position: relative;
     z-index: 1;
 
-    background-color: white;
+    background-color: var(--main-background);
 
     width: 97.9vw;
 
