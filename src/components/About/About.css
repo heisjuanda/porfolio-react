@@ -27,8 +27,8 @@
 }
 
 .section-title>h1 {
-    font-size: clamp(12px, 16vw, 230px);
-    font-family: 'brown';
+    font-size: clamp(12px, 12vw, 200px);
+    font-family: 'nimbus';
     text-align: center;
 
     overflow: hidden;
@@ -38,8 +38,9 @@
 
 .myName-letters {
     display: inline-block;
-    transform: translateY(18vw) rotate(20deg);
+    transform: translateY(18vw) rotate(10deg);
     transition: 1s;
+    transition-delay: 0.3s;
 }
 
 .section-content {
@@ -67,7 +68,7 @@
 .section-content__title {
     margin-top: 8%;
 
-    background-color: black;
+    background-color: transparent;
     border-radius: 50%;
 
     width: 200px;
@@ -83,9 +84,6 @@
 }
 
 .section-content__title p {
-    color: white;
-    font-size: 25px;
-    font-family: 'brown';
     position: absolute;
     left: 100px;
     top: -25px;
@@ -96,12 +94,12 @@
 .section-content__title .resumee-letters {
     display: inline-block;
     position: absolute;
-    color: white;
+    color: black;
     transform-origin: 0 100px;
     top: 0;
-    font-size: clamp(20px, 2vw, 20px);
+    font-size: 22px;
+    font-family: 'cotham';
     font-weight: 100;
-    font-family: 'Cormorant Garamond';
 }
 
 .content__icon {
@@ -113,8 +111,8 @@
 
     border: 1px solid transparent;
 
-    width: 130px;
-    height: 130px;
+    width: 150px;
+    height: 150px;
 }
 
 .content__icon>span {
@@ -123,20 +121,18 @@
 
     border: 1px solid transparent;
 
-    width: 130px;
-    height: 130px;
+    width: 150px;
+    height: 150px;
 }
 
 .content__icon>span>img {
-    width: 130px;
+    width: 150px;
 
     border: 1px solid transparent;
     border-radius: 50%;
 
     position: absolute;
     z-index: 10;
-
-    opacity: 0.7;
 }
 
 .section-content__about-me {
@@ -145,10 +141,9 @@
     margin-top: 10%;
 }
 
-.section-content__about-me>p {
+.section-content__about-me p {
     font-size: clamp(20px, 2.5vw, 25px);
-    font-weight: 100;
-    font-family: 'Cormorant Garamond';
+    font-family: 'aileron';
 }
 
 .myDescription-text>div{
@@ -159,9 +154,9 @@
     background-size: 0%;
     -webkit-background-clip: text;
 
-    color: rgba(0, 0, 0, 0.3);
+    color: rgba(0, 0, 0, 0.2);
     transition: 1s;
-    transition-delay: 0.5;
+    transition-delay: 0.3;
 }
 
 @media screen and (max-width:650px) {

@@ -7,6 +7,15 @@
     }
 }
 
+@keyframes name-reveal {
+    from {
+        transform: translateY(20vw);
+    }
+    to {
+        transform: translateY(0vw);
+    }
+}
+
 .home-section {
     overflow: hidden;
 
@@ -24,7 +33,7 @@
 
     opacity: 0;
 
-    animation: transitionHomeReveal 2s ease 0.3s forwards;
+    animation: transitionHomeReveal 1s ease 0.3s forwards;
 }
 
 .home-section__title>* {
@@ -34,7 +43,7 @@
 
     font-size: clamp(18px,2.3vw,23px);
     font-weight: 100;
-    font-family: 'Cormorant Garamond';
+    font-family: 'aileron';
 }
 
 .home-section__title>img {
@@ -95,9 +104,18 @@
     color: white;
 
     text-align: center;
-    font-size: clamp(50px,8vw,80px);
-    font-family: 'brown';
-    font-weight: 400;    
+    font-size: clamp(20px,8vw,80px);
+    font-family: 'nimbus';
+    font-weight: 700;
+
+    overflow: hidden;
+}
+
+.name-letters__home {
+    display: inline-block;
+
+    transform: translateY(20vw);
+    animation: name-reveal 1s ease 0.5s forwards;
 }
 
 .home-about__transition {

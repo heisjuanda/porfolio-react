@@ -1,14 +1,22 @@
 @font-face {
-    font-family: 'brown';
-    src: url('./BrownSugar.ttf') format('truetype');
+    font-family: 'cotham';
+    src: url('./CothamSans.ttf') format('truetype');
     font-weight: normal;
     font-style: normal;
     font-display: swap;
 }
 
 @font-face {
-    font-family: 'Cormorant Garamond';
-    src: url('./CormorantGaramond.ttf') format('truetype');
+    font-family: 'nimbus';
+    src: url('./nimbus-sans-l_bold.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'aileron';
+    src: url('./aileron.ultralight.ttf') format('truetype');
     font-weight: normal;
     font-style: normal;
     font-display: swap;

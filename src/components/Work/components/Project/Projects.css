@@ -36,7 +36,7 @@
 .project-section__title h2 {
     font-size: clamp(80px, 100vh, 150px);
     font-weight: 300;
-    font-family: 'brown';
+    font-family: 'cotham';
     position: absolute;
     top: 0;
 }
@@ -104,7 +104,7 @@
 .container__title-date h2 {
     font-size: clamp(40px, 5vw, 50px);
     font-weight: 400;
-    font-family: 'brown';
+    font-family: 'aileron';
 }
 
 .content-description__container {
@@ -128,7 +128,8 @@
     white-space: normal;
     text-align: left;
     font-size: clamp(16px,1.8vw,18px);
-    font-weight: 100;
+    font-family: 'aileron';
+    color: black;    
 
     width: 100%;
 }
@@ -151,8 +152,8 @@
 
     transition: 0.3s;
 
-    font-size: clamp(18px, 2vw, 20px);
-    font-family: 'Cormorant Garamond';
+    font-size: clamp(16px, 1.8vw, 18px);
+    font-family: 'aileron';
 }
 
 .container__des-see button:hover {
@@ -200,12 +201,11 @@
     }
 
     .project-section__title h2 {
-        font-size: 60px;
-        font-weight: 300;
-        font-family: 'brown';
+        font-size: 55px;
 
         position: absolute;
-        top: clamp(-58px, -9vw, -150px);
+        /*top: clamp(-53px, -9vw, -145px);*/
+        top: clamp(-10px, -2vw, -20px);
 
         border: 1px solid transparent;
 
@@ -266,13 +266,6 @@
 
 @media screen and (max-width:400px) {
     .project-section__title h2 {
-        top: clamp(-50px, -9vw, -150px);
-    }
-}
-
-@media screen and (max-width:300px){
-    .project-section__title h2 {
-        font-size: 45px;
         top: clamp(-40px, -9vw, -150px);
     }
 }

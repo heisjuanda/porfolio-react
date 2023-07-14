@@ -33,7 +33,7 @@
 
 .talk-section__title>h2 {
     font-size: clamp(30px, 10vw, 100px);
-    font-family: 'brown';
+    font-family: 'nimbus';
     text-align: center;
 }
 
@@ -71,7 +71,7 @@
 .social-link {
     font-size: clamp(20px, 3vw, 30px);
     font-weight: 500;
-    font-family: 'Cormorant Garamond';
+    font-family: 'aileron';
     text-align: center;
     position: relative;
     z-index: 2;
@@ -156,7 +156,7 @@
     left: 10%;*/
     text-align: center;
     font-size: clamp(20px, 2.5vw, 25px);
-    font-family: 'Cormorant Garamond';
+    font-family: 'cotham';
 }
 
 input:-webkit-autofill,
@@ -171,7 +171,8 @@ input:-webkit-autofill:active {
 .subject-form__container>input,
 .message-form__container>textarea {
     font-size: clamp(12px, 2vw, 18px);
-    font-family: 'Cormorant Garamond';
+    font-family: 'aileron';
+    font-weight: 700;
     border: none;
     border-bottom: 1px solid black;
     padding: 2%;
@@ -209,8 +210,8 @@ input:-webkit-autofill:active {
 
     border-radius: 30px;
 
-    font-size: clamp(18px, 2vw, 22px);
-    font-family: 'Cormorant Garamond';
+    font-size: clamp(18px, 2vw, 20px);
+    font-family: 'aileron';
 
     cursor: pointer;
 

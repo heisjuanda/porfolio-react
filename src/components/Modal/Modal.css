@@ -101,14 +101,14 @@
     color: white;
 
     font-size: clamp(20px, 2.5vw, 25px);
-    font-family: 'Brown';
+    font-family: 'cotham';
 }
 
 .modal-body__message>p {
     color: white;
 
     font-size: clamp(16px, 1.8vw, 18px);
-    font-family: 'Cormorant Garamond';
+    font-family: 'aileron';
 }
 
 @media screen and (max-width:680px) {

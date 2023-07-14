@@ -1,7 +1,9 @@
 import { useNavigate } from 'react-router-dom';
-import { useCallback, useRef, useState } from 'react';
+import { useCallback, useRef, useState, useEffect } from 'react';
 
 import { TrailerMouse } from '../TrailerMouse/TrailerMouse';
+
+import getLetters from '../../helpers/getLetters';
 
 import logo from '../../assets/images/projects/heisjuandaLogo.webp';
 
@@ -12,6 +14,7 @@ export const Home = () => {
     const history = useNavigate();
 
     const animationTransitionRef = useRef();
+    const homeNameRef = useRef();
 
     const [wasAnimated, setWasAnimated] = useState(false);
 
@@ -24,6 +27,15 @@ export const Home = () => {
             }, 1000);
         }
     }, [history]);
+
+    useEffect(() => {
+        homeNameRef.current = Array.from(document.querySelectorAll('.home-name__target'));
+        if (homeNameRef.current.length > 0) {
+            for (const h2Element of homeNameRef.current) {
+                getLetters(h2Element, 'name-letters__home');
+            }
+        }
+    }, []);
 
     return (
         <section className='home-section'>
@@ -51,11 +63,11 @@ export const Home = () => {
                 </header>
                 <article className='home-section__content'>
                     <div>
-                        <h2>
-                            Juan David
+                        <h2 className='home-name__target'>
+                            JUAN DAVID
                         </h2>
-                        <h2>
-                            Moreno Alfonso
+                        <h2 className='home-name__target'>
+                            MORENO ALFONSO
                         </h2>
                     </div>
                 </article>

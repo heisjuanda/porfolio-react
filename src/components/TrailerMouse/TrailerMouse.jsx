@@ -85,7 +85,7 @@ export const TrailerMouse = (props) => {
 
                 if (trailer.current.dataset.type === 'button-click' ||
                     trailer.current.dataset.type === 'menu-option') {
-                    trailer.current.style.border = '5px solid white';
+                    trailer.current.style.border = '2px solid white';
                     trailer.current.style.backgroundColor = 'black';
                 } else {
                     trailer.current.style.border = 'none';

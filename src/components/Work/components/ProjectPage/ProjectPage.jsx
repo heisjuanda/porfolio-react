@@ -75,7 +75,7 @@ export const ProjectPage = () => {
                     .forEach((span) => {
                         span.style.transform = `translateY(0vw)`;
                     });
-            }, 50);
+            }, 100);
         }
     }, [titleProject]);
 
@@ -90,7 +90,7 @@ export const ProjectPage = () => {
                                     key={id}
                                     className='title__target'
                                 >
-                                    {word}
+                                    {word.toUpperCase()}
                                 </h2>
                             );
                         })}

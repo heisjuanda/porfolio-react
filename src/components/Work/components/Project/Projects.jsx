@@ -59,9 +59,9 @@ export const Projects = (props) => {
                 <header className='project-section__title'>
                     <h2 className='title-repeat' data-scroll data-scroll-speed={number % 2 === 0 ? '5' : '-5'} data-scroll-direction="horizontal">
                         {width > 801 ? (
-                            title.repeat(5) + title
+                            `${title} - `.repeat(5) + title
                         ) : (
-                            title.repeat(2) + title
+                            `${title} - `.repeat(2) + title
                         )}
                     </h2>
                 </header>
@@ -82,7 +82,9 @@ export const Projects = (props) => {
                         <div className='container__des-see'>
                             <div>
                                 <p>
-                                    {description}
+                                    <b>
+                                        {description}
+                                    </b>
                                 </p>
                             </div>
                             <button className='interactable' data-type='button-click' onClick={handleSeeProject}>

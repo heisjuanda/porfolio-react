@@ -150,7 +150,7 @@ export const Work = () => {
                                 <Projects
                                     width={windowWidth}
                                     key={project.id}
-                                    title={project.title}
+                                    title={`${project.title}`.toUpperCase()}
                                     description={project.description}
                                     images={project.images[0]}
                                     number={project.id}
