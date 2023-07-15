@@ -37,7 +37,6 @@ export const Talk = () => {
                         type: 'check'
                     };
                 });
-                //sendEmailResponse(data.Email);
                 reset();
             } else {
                 setModalOptions(() => {
@@ -88,7 +87,7 @@ export const Talk = () => {
             setShowModal(true);
             setModalOptions(() => {
                 return {
-                    title: field ? `${field} is incorrect` : `Try again`,
+                    title: `${field} is incorrect`,
                     message: message,
                     type: 'info'
                 };

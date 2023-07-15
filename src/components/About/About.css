@@ -73,7 +73,7 @@
     overflow: hidden;
 
     opacity: 0;
-    animation: about-revealTitle 0.7s ease 0.3s forwards;
+    animation: about-revealTitle 0.7s ease 1s forwards;
 
     position: relative;
 }

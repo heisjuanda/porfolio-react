@@ -101,7 +101,7 @@ export const ProjectPage = () => {
                     <div>
                         {project.images ? (
                             project.images.map((img, id) => {
-                                if (id !== 0) {
+                                if (id > 1) {
                                     return (
                                         <div key={id}>
                                             <p>
