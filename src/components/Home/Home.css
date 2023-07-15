@@ -18,6 +18,20 @@
     }
 }
 
+@keyframes homeAbout-transition {
+    0% {
+        border-radius: 50% 0% 0% 50%;
+        width: 0vw;
+    }
+    60% {
+        border-radius: 50% 0% 0% 50%;
+    }
+    100% {
+        border-radius: 0% 0% 0% 0%;
+        width: 115vw;
+    }
+}
+
 .home-section {
     overflow: hidden;
 
@@ -139,15 +153,18 @@
 }
 
 .home-about__transition {
-    position: absolute;
+    position: fixed;
     z-index: 90;
-    top: 0;
+    top: -10vh;
     right: 0;
 
     width: 0vw;
-    height: 100dvh;
+    height: 120dvh;
 
-    transition: 0.9s;
+    border-radius: 50% 0% 0% 50%;
+
+    overflow: hidden;
+
 
     background-color: white;
 }

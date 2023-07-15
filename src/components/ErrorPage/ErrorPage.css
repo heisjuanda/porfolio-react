@@ -1,6 +1,19 @@
+@keyframes error__transition {
+    from {
+        width: 0vw;
+    }
+     to {
+        width: 100vw;
+     }
+}
+
 .error-section {
     width: 100%;
     height: 100dvh;
+
+    overflow-x: hidden;
+    overflow-y: hidden;
+
     background-color: var(--main-background);
 }
 
@@ -62,8 +75,6 @@
 
     width: 0vw;
     height: 100vh;
-
-    transition: 0.9s;
 
     background-color: var(--secundary-background);
 }

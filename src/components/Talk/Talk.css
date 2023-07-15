@@ -268,7 +268,7 @@ input:-webkit-autofill:active {
 
 @media screen and (max-width:700px) {
     .talk-section__content {
-        min-height: 70vh;
+        min-height: 69vh;
     }
 }
 
@@ -312,7 +312,24 @@ input:-webkit-autofill:active {
     }
 }
 
-@media screen and (max-width:350px) {
+@media screen and (max-width:400px) {
+    .talk-section {
+        overflow: hidden;
+        min-height: 80vh;
+    }
+
+    .talk-section__title {
+        margin: 0;
+    }
+
+    .talk-section__title>h2 {
+        margin-bottom: 0%;
+    }
+
+    .talk-section__content {
+        margin-top: 0%;
+    }
+
     .form-container {
         width: 80%;
         min-width: 250px;
@@ -321,6 +338,7 @@ input:-webkit-autofill:active {
     .social-media__container>ol {
         display: flex;
         flex-direction: row;
-        gap: 13%;
+        gap: 7.5%;
+        margin-top: 0%;
     }
 }

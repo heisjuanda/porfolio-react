@@ -14,7 +14,7 @@ export const ErrorPage = () => {
 
     const handleGoHome = useCallback(() => {
         if (transitionContainerRef.current) {
-            transitionContainerRef.current.style.width = '100vw';
+            transitionContainerRef.current.style.animation = 'error__transition 0.9s ease forwards';
             setTimeout(() => {
                 history('/home');
             }, 1002);

@@ -22,11 +22,11 @@ export const Home = () => {
 
     const handleGoToAbout = useCallback(() => {
         if (animationTransitionRef.current) {
-            animationTransitionRef.current.style.width = '100vw';
+            animationTransitionRef.current.style.animation = 'homeAbout-transition 0.9s linear forwards';
             setWasAnimated(true);
             setTimeout(() => {
                 history('/about');
-            }, 1000);
+            }, 1100);
         }
     }, [history]);
 

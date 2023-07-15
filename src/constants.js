@@ -1,6 +1,7 @@
 //0
 import patitasACasa from './assets/images/projects/patitasACasa.webp';
-//import patitasACasa1 from './assets/images/projects/patitasACasa1.webp';
+import patatiasACasaLogo from './assets/images/projects/patitasACasaLogo.webp';
+import patitasACasa1 from './assets/images/projects/patitasACasa1.webp';
 import patitasACasa2 from './assets/images/projects/patitasACasa2.webp';
 //1
 import programLanguage from './assets/images/projects/programLanguage.webp';
@@ -11,7 +12,8 @@ export const PROJECTS = [
         title: 'Patitas a Casa ',
         images: [
             patitasACasa,
-            //patitasACasa1,
+            patatiasACasaLogo,
+            patitasACasa1,
             patitasACasa2
         ],
         description: `

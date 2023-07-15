@@ -74,6 +74,7 @@ export const ProjectPage = () => {
                 document.querySelectorAll('.projectTitle-letters')
                     .forEach((span) => {
                         span.style.transform = `translateY(0vw)`;
+                        span.style.opacity = `1`;
                     });
             }, 100);
         }
