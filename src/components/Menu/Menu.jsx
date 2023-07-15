@@ -101,7 +101,7 @@ export const Menu = () => {
 
     return (
         <>
-            <button ref={burgerBtnRef} className="burger-btn interactable" onClick={handleMenu}>
+            <button role='button' title='burger-menu' ref={burgerBtnRef} className="burger-btn interactable" onClick={handleMenu}>
                 <span ref={firstLineRef} id='burger-btn__one'></span>
                 <span ref={secondLineRef} id='burger-btn__two'></span>
                 <span ref={thirdLineRef} id='burger-btn__three'></span>

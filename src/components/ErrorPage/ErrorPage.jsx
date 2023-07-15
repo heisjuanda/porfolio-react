@@ -1,8 +1,8 @@
 import { useNavigate } from 'react-router-dom';
-import { useCallback, useRef } from 'react';
+import { useCallback, useRef, useEffect } from 'react';
 
 import Lottie from 'lottie-react';
-import notFound from '../../assets/animations/404Page.json';
+import errorAnimation from '../../assets/animations/error404.json';
 
 import './ErrorPage.css';
 
@@ -11,6 +11,7 @@ export const ErrorPage = () => {
     const history = useNavigate();
 
     const transitionContainerRef = useRef();
+    const errorSectionRef = useRef();
 
     const handleGoHome = useCallback(() => {
         if (transitionContainerRef.current) {
@@ -22,17 +23,23 @@ export const ErrorPage = () => {
 
     }, [history]);
 
+    useEffect(() => {
+        if (errorSectionRef.current) {
+            errorSectionRef.current.addEventListener('click',handleGoHome);
+        }
+    }, [handleGoHome]);
+
     return (
         <>
             <div ref={transitionContainerRef} className='error-section__transition'></div>
-            <section className='error-section'>
+            <section ref={errorSectionRef} className='error-section'>
                 <header className='error-section__go-back'>
                     <button onClick={handleGoHome}>
                         Home
                     </button>
                 </header>
                 <article className='error-section__animation'>
-                    <Lottie className='error-page' animationData={notFound} />
+                    <Lottie className='error-page' animationData={errorAnimation} />
                 </article>
             </section>
         </>
