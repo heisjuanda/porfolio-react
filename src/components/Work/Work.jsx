@@ -152,7 +152,7 @@ export const Work = () => {
                                     key={project.id}
                                     title={`${project.title}`.toUpperCase()}
                                     description={project.description}
-                                    images={project.images[0]}
+                                    images={[project.images[0], project.images[1]]}
                                     number={project.id}
                                     scroll={locomotive}
                                     transition={handleTransition}

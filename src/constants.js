@@ -1,19 +1,19 @@
 //0
-import patitasACasa from './assets/images/projects/patitasACasa.webp';
+//import patitasACasa from './assets/images/projects/patitasACasa.webp';
 import patatiasACasaLogo from './assets/images/projects/patitasACasaLogo.webp';
-import patitasACasa1 from './assets/images/projects/patitasACasa1.webp';
+import patitasACasaMain from './assets/images/projects/patitasACasaMain.webp';
 import patitasACasa2 from './assets/images/projects/patitasACasa2.webp';
 //1
-import programLanguage from './assets/images/projects/programLanguage.webp';
+import programLanguageLogo from './assets/images/projects/programLanguageLogo.webp';
+import programLanguageMain from './assets/images/projects/programLanguageMain.webp';
 
 export const PROJECTS = [
     {
         id: '1',
         title: 'Patitas a Casa ',
         images: [
-            patitasACasa,
+            patitasACasaMain,
             patatiasACasaLogo,
-            patitasACasa1,
             patitasACasa2
         ],
         description: `
@@ -27,7 +27,9 @@ export const PROJECTS = [
         id: '2',
         title: 'Program Language ',
         images: [
-            programLanguage,
+            programLanguageMain,
+            programLanguageLogo,
+
         ],
         description: `
         The new program language, called "Fundamentals of Programming Languages" (FPL), is a functional programming language that is designed to help users understand how program languages work. 
