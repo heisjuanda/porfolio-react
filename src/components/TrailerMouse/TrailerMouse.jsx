@@ -2,7 +2,7 @@ import PropTypes from 'prop-types';
 import { useEffect, useRef, useState, useCallback } from 'react';
 
 import defaultIcon from '../../assets/images/icons/defaultIcon.png';
-import arrowRight from '../../assets/images/icons/arrowRight.png';
+import arrowRight from '../../assets/images/icons/arrowRightB.png';
 import arrowDownB from '../../assets/images/icons/arrowDownB.png';
 
 import './TrailerMouse.css';

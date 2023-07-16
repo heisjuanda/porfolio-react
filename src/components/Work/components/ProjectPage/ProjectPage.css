@@ -8,6 +8,15 @@
     }
 }
 
+@keyframes buttonHover-arrow {
+    from {
+        transform: translateX(-25px);
+    }
+    to {
+        transform: translateX(25px);
+    }
+}
+
 .project-page__section {
     background-color: var(--secundary-background);
     border: 1px solid transparent;
@@ -39,9 +48,9 @@
 
 .project-page__section-title>div>h2 {
     color: white;
-    font-size: clamp(50px, 8vw, 80px);
+    font-size: clamp(50px, 10vw, 100px);
     font-family: 'seasons';
-    font-weight: 300;
+    font-weight: 100;
 
     margin: 0;
 
@@ -60,32 +69,238 @@
     transition-delay: 0.2s;
 }
 
-.project-page__section-content {
-    height: 500vh;
+.about-project {
+    width: 100%;
+
+    margin-inline: auto;
 }
 
-.project-page__section-content>div:first-child {
+.about-project>p {
+    color: white;
+
+    width: 50%;
+    min-width: 265px;
+    max-width: 600px;
+
+    margin-inline: auto;
+
+    font-size: clamp(18px, 2vw, 20px);
+    font-family: 'cormorant';
+}
+
+.about-project>div {
+    width: 95%;
+
+    margin-inline: auto;
+}
+
+.about-project>div img {
+    width: 100%;
+}
+
+.project-page__section-content {
+    background-color: var(--main-background);
+
+    border: 1px solid transparent;
+}
+
+.project-page__section-content>div,
+.project-page__section-details {
+    background-color: var(--main-background);
+
+    border: 1px solid transparent;
+
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+.project-page__section-content>div {
+    width: 80%;
+
+    margin-inline: auto;
+    margin-top: 8%;
+}
+
+.section-content__about {
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    border-radius: 20px;
+
+    padding: 3%;
+    margin-top: 5%;
+
+    display: flex;
+    flex-direction: column;
+
+    font-size: clamp(16, 1.8vw, 18px);
+    font-family: 'aileron';
+
+    width: 80%;
+    max-width: 400px;
+
+    margin-inline: auto;
+}
+
+.section-content__about>h2 {
+    font-size: clamp(20px, 2.5vw, 25px);
+    font-family: 'seasons';
+    font-weight: 100;
+
+    opacity: 0.7;
+}
+
+.section-content__about>p {
+    font-size: clamp(20px, 2.5vw, 25px);
+    font-family: 'aileron';
+}
+
+.project-page__section-content>div ol {
+    margin: 0;
+}
+
+.project-page__section-content>div li {
+    list-style: disc;
+}
+
+.section-content__about:last-child {
+    max-width: 200px;
+}
+
+.section-content__about:last-child>h2 {
+    text-align: center;
+}
+
+
+.project-page__section-details {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.project-page__section-details>h2 {
+    text-align: center;
+
+    font-family: 'seasons';
+    font-weight: 100;
+    font-size: clamp(25px, 3vw, 30px);
+
+    margin-inline: auto;
+
+    margin-top: 10%;
+}
+
+.project-page__section-details>p {
+    font-size: clamp(18px, 2vw, 20px);
+    font-family: 'cormorant';
+    text-align: center;
+
+    width: 50%;
+    min-width: 265px;
+    max-width: 600px;
+    
+    margin-inline: auto;
+    margin-bottom: 10%;
+}
+
+.section-details__img {
+    width: 100%;
+    min-width: 260px;
+    max-width: 1600px;
+
     display: flex;
     flex-direction: column;
 }
 
-.project-page__section-content>div:first-child>div {
-    display: flex;
-    flex-direction: row-reverse;
-    justify-content: center;
+.section-details__img>img {
+    width: 80%;
+
+    border-radius: 15px;
+
+    margin-inline: auto;
+    margin-bottom: 5%;
 }
 
-.project-page__section-content>div:first-child>div p {
+.section-end__next {
+    background-color: var(--secundary-background);
+    border: 1px solid transparent;
+
+    width: 100%;
+}
+
+.section-end__next>h2 {
+    font-size: clamp(40px, 5vw, 50px);
+    font-weight: 100;
+    font-family: 'cormorant';
+    text-align: center;
+
+    margin-top: 10%;
+
     color: white;
-
-    font-size: clamp(20px, 3vw, 30px);
-
 }
 
-.project-page__section-content>div:first-child>div img {
-    width: 50%;
-    min-width: 260px;
+.section-end__next>button {
+    width: 12vw;
+    max-width: 150px;
+    min-width: 100px;
 
-    -webkit-clip-path: polygon(25% 0%, 100% 0%, 75% 100%, 0% 100%);
-    clip-path: polygon(25% 0%, 100% 0%, 75% 100%, 0% 100%);
+    font-size: clamp(16px, 1.8vw, 18px);
+    font-family: 'aileron';
+
+    border-radius: 15px;
+    border: 1px solid white;
+    color: white;
+    background-color: var(--secundary-background);
+
+    cursor: pointer;
+
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+
+    margin-inline: auto;
+    margin-bottom: 10%;
+    padding: 0.3%;
+
+    transition: 0.3s;
+}
+
+.section-end__next>button>span {
+    width: 25px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 25px;
+
+    overflow: hidden;
+}
+
+.section-end__next>button img {
+    width: 100%;
+
+    transform: translateX(-25px);
+
+    transition: 0.5s;
+}
+
+.section-end__next>button:hover img {
+    animation: buttonHover-arrow 0.5s ease forwards;
+}
+
+.project-page__next-project-transition {
+    width: 100vw;
+    height: 0vh;
+
+    background-color: var(--main-background);
+
+    transition: height 0.9s, background-color 0.5s;
+    transition-delay: 0.3s;
+
+    position: absolute;
+    z-index: 99;
+    bottom: 0;
+    left: 0;
 }

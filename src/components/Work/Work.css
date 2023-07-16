@@ -30,12 +30,8 @@
     scroll-snap-align: start;
 }
 
-.work-section__title {
-    /*border-right: 1px solid rgba(0, 0, 0, 0.5);*/
-}
-
 .work-section__title h1 {
-    font-size: clamp(60px, 8vw, 200px);
+    font-size: clamp(50px, 8vw, 200px);
     font-family: 'seasons';
     font-weight: 100;
     display: flex;

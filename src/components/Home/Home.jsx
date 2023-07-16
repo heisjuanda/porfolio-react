@@ -22,7 +22,7 @@ export const Home = () => {
 
     const handleGoToAbout = useCallback(() => {
         if (animationTransitionRef.current) {
-            animationTransitionRef.current.style.animation = 'homeAbout-transition 0.9s linear forwards';
+            animationTransitionRef.current.style.animation = 'homeAbout-transition 0.9s ease forwards';
             setWasAnimated(true);
             setTimeout(() => {
                 history('/about');
