@@ -43,6 +43,10 @@
 
     overflow: hidden;
 
+    opacity: 0;
+
+    animation: about-revealTitle 100ms linear forwards;
+
     height: 18vw;
 }
 

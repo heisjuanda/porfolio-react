@@ -72,6 +72,10 @@
     width: 100%;
     text-align: center;
 
+    opacity: 0;
+
+    animation: revealText 100ms linear forwards;
+
     overflow: hidden;
 }
 
