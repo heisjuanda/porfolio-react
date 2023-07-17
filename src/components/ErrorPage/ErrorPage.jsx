@@ -15,10 +15,10 @@ export const ErrorPage = () => {
 
     const handleGoHome = useCallback(() => {
         if (transitionContainerRef.current) {
-            transitionContainerRef.current.style.animation = 'error__transition 0.9s ease forwards';
+            transitionContainerRef.current.style.animation = 'error__transition 0.9s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards';
             setTimeout(() => {
                 history('/home');
-            }, 1002);
+            }, 1050);
         }
 
     }, [history]);

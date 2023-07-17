@@ -7,6 +7,7 @@ import LocomotiveScroll from 'locomotive-scroll';
 import { PROJECTS } from '../../../../constants';
 
 import arrowRight from '../../../../assets/images/icons/arrowRightW.png';
+import arrowDownW from '../../../../assets/images/icons/arrowDownW.png';
 
 import './ProjectPage.css';
 
@@ -25,7 +26,7 @@ export const ProjectPage = () => {
     const handleNextProjectTransition = useCallback(() => {
         animationTargetRef.current = Array.from(document.querySelectorAll('.target-project__section'));
 
-        const isThere = PROJECTS.length > (parseInt(id + 1));
+        const isThere = PROJECTS.length > (parseInt(id) + 1);
         if (transitionSectionRef.current && animationTargetRef.current) {
             for (const HTMLElement of animationTargetRef.current) {
                 HTMLElement.style.opacity = '0';
@@ -34,7 +35,7 @@ export const ProjectPage = () => {
             transitionSectionRef.current.style.backgroundColor = 'var(--secundary-background)';
 
             setTimeout(() => {
-                history(`/work/project/${isThere ? parseInt(id + 1) : 0}`);
+                history(`/work/project/${isThere ? (parseInt(id) + 1) : 0}`);
                 history(0);
             }, 1100);
         }
@@ -71,6 +72,13 @@ export const ProjectPage = () => {
 
         setTimeout(() => {
             scroll ? scroll.update() : null;
+
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    scroll.scrollTo(this.getAttribute('href'));
+                });
+            });
         }, 500);
 
         window.addEventListener('resize', handleResize);
@@ -124,10 +132,21 @@ export const ProjectPage = () => {
                 <div className='about-project'>
                     <p>{project.intro}</p>
                     <div>
+                        <span>
+                            <a href="#about-project">
+                                <img src={arrowDownW} alt="down arrow" />
+                                <img src={arrowDownW} alt="down arrow" />
+                            </a>
+                        </span>
+                    </div>
+                    <div>
                         <img src={project.demo} alt="Demo of my project" />
                     </div>
                 </div>
                 <article className='project-page__section-content'>
+                    <h2 id='about-project'>
+                        ABOUT
+                    </h2>
                     <div>
                         {project.about ? (
                             <>
@@ -194,7 +213,9 @@ export const ProjectPage = () => {
                         {project.detailsImg ? (
                             project.detailsImg.map((img, id) => {
                                 return (
-                                    <img key={id} src={img} alt="Project Demo device" />
+                                    <div key={id}>
+                                        <img src={img} alt="Project Demo device" />
+                                    </div>
                                 );
                             })
                         ) : null}

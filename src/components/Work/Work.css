@@ -63,9 +63,9 @@
     height: 0vh;
 
     border: 1px solid transparent;
-    background-color: transparent;
+    background-color: var(--main-background);
 
-    transition: height 0.9s;
+    transition: height 0.9s, background-color 0.5s;
     transition-timing-function: cubic-bezier(0.25, 0.46, 0.45, 0.94);
 }
 

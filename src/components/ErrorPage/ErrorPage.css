@@ -1,8 +1,13 @@
 @keyframes error__transition {
-    from {
+    0% {
         width: 0vw;
+        background-color: var(--main-background);
     }
-     to {
+    55% {
+        background-color: var(--secundary-background);
+    }
+    100% {
+        background-color: var(--secundary-background);
         width: 100vw;
      }
 }
@@ -76,5 +81,5 @@
     width: 0vw;
     height: 100vh;
 
-    background-color: var(--secundary-background);
+    background-color: var(--main-background);
 }

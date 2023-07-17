@@ -21,11 +21,14 @@
 @keyframes homeAbout-transition {
     0% {
         width: 0vw;
+        background-color: var(--secundary-background);
     }
-    60% {
+    55% {
+        background-color: var(--main-background);
     }
     100% {
         width: 115vw;
+        background-color: var(--main-background);
     }
 }
 
@@ -159,7 +162,6 @@
     height: 120dvh;
 
     overflow: hidden;
-
 
     background-color: white;
 }
