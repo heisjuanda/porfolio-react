@@ -25,7 +25,7 @@ Welcome to my portfolio; in this repo you will find all of the materials and cod
 ## Page Speed Insights
 <h2>
   <a target='_blank' href='https://pagespeed.web.dev/analysis/https-heisjuanda-netlify-app/2ttj0zob82?form_factor=desktop'>
-    Mobile
+    Desktop
   </a>
 </h2>
 <center>
