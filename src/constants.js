@@ -62,6 +62,7 @@ export const PROJECTS = [
             patitasACasaDetailsMB
         ],
         date: '2023',
+        gitLink: 'https://github.com/adanj27/Patitas-a-casa/tree/frontend-development',
     },
     {
         id: '2',
@@ -100,6 +101,7 @@ export const PROJECTS = [
             programLanguageDetailsMB
         ],
         date: '2022',
+        gitLink: 'https://github.com/heisjuanda/Program-language',
     },
     {
         id: '3',
@@ -144,6 +146,7 @@ export const PROJECTS = [
             portfolioDetailsMB
         ],
         date: '2023',
+        gitLink: 'https://github.com/heisjuanda/porfolio-react',
     },
 ];
 

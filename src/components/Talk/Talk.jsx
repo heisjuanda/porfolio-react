@@ -6,17 +6,20 @@ import { Modal } from '../Modal/Modal';
 
 //sendEmailResponse
 import { sendEmail } from '../../services/services';
-import LocomotiveScroll from 'locomotive-scroll';
+
+import sendB from '../../assets/images/icons/sendB.png';
+import sendW from '../../assets/images/icons/sendW.png';
 
 import './Talk.css';
 
 export const Talk = () => {
 
     const titleTalkSectionRef = useRef();
+    const imgIconBtnRef = useRef();
 
     const [showModal, setShowModal] = useState(false);
     const [modalOptions, setModalOptions] = useState({});
-    const [currentWidth, setCurrentWidth] = useState(0);
+    const [sendIcon, setSendIcon] = useState('');
 
     const {
         register,
@@ -26,10 +29,22 @@ export const Talk = () => {
     } = useForm();
 
     const handleSubmitForm = useCallback((data) => {
-        const response = sendEmail(data.Name, data.Email, data.Subject, data.Message);
+        const response = sendEmail(data.Name, data.Email, data.Message);
         response.then((res) => {
             setShowModal(true);
             if (res === 'sent') {
+                if (imgIconBtnRef.current) {
+                    imgIconBtnRef.current.style.transform = 'translateX(20px)';
+                    imgIconBtnRef.current.style.opacity = '0';
+                    setTimeout(() => {
+                        imgIconBtnRef.current.style.transform = 'translateX(-20px)';
+                    }, 150);
+                    setTimeout(() => {
+                        imgIconBtnRef.current.style.opacity = '1';
+                        imgIconBtnRef.current.style.transform = 'translateX(0px)';
+                    }, 300);
+                }
+
                 setModalOptions(() => {
                     return {
                         title: 'Email was Sent',
@@ -77,66 +92,51 @@ export const Talk = () => {
             } else if (error.Email) {
                 message = findErrorType(error.Email.type, 5, 100, "It's not a valid email");
                 field = 'Email';
-            } else if (error.Subject) {
-                message = findErrorType(error.Subject.type, 2, 50, 'Symbols not allowed');
-                field = 'Subject';
             } else if (error.Message) {
                 message = findErrorType(error.Message.type, 5, 500, 'Symbols not allowed');
                 field = 'Message';
             }
-            setShowModal(true);
-            setModalOptions(() => {
-                return {
-                    title: `${field} is incorrect`,
-                    message: message,
-                    type: 'info'
-                };
-            });
+            if (
+                error.Name ||
+                error.Email ||
+                error.Message
+            ) {
+                setShowModal(true);
+                setModalOptions(() => {
+                    return {
+                        title: `${field} is incorrect`,
+                        message: message,
+                        type: 'info'
+                    };
+                });
+            }
+
         }
     }, [findErrorType]);
 
-    useEffect(() => {
-        setCurrentWidth(window.innerWidth);
+    const handleEnterIcon = useCallback(() => {
+        if (imgIconBtnRef.current) {
+            imgIconBtnRef.current.style.opacity = '0';
+            setTimeout(() => {
+                imgIconBtnRef.current.style.opacity = '1';
+                imgIconBtnRef.current.setAttribute('src', sendW);
+            }, 100);
+        }
+    }, []);
+
+    const handleLeaveIcon = useCallback(() => {
+        if (imgIconBtnRef.current) {
+            imgIconBtnRef.current.style.opacity = '0';
+            setTimeout(() => {
+                imgIconBtnRef.current.style.opacity = '1';
+                imgIconBtnRef.current.setAttribute('src', sendB);
+            }, 100);
+        }
     }, []);
 
     useEffect(() => {
-        let scroll = null;
-
-        const createScroll = () => {
-            scroll = new LocomotiveScroll({
-                el: document.querySelector('.talk-section'),
-                smooth: true,
-                smoothMobile: true,
-                multiplier: 1,
-                lerp: 0.06,
-                smartphone: {
-                    smooth: true,
-                    locomotive: true,
-                    init: true,
-                    speed: 20,
-                    multiplier: 2
-                },
-            });
-        };
-        createScroll();
-
-        const handleResize = () => {
-            if (scroll) {
-                scroll.update();
-            }
-            setCurrentWidth(window.innerWidth);
-        };
-
-        window.addEventListener('resize', handleResize);
-        if (currentWidth < 800) {
-            scroll.destroy();
-        }
-        return () => {
-            window.removeEventListener('resize', handleResize);
-            scroll.destroy();
-        };
-
-    }, [currentWidth]);
+        setSendIcon(sendB);
+    }, []);
 
     return (
         <>
@@ -175,7 +175,7 @@ export const Talk = () => {
                     <div className='form-container'>
                         <form onSubmit={handleSubmit(handleSubmitForm)}>
                             <div className='name-form__container'>
-                                <label htmlFor="name-input">Full Name</label>
+                                <label htmlFor="name-input">Name</label>
                                 <input
                                     id='name-input'
                                     type="text"
@@ -204,16 +204,6 @@ export const Talk = () => {
                                     })}
                                 />
                             </div>
-                            <div className='subject-form__container'>
-                                <label htmlFor="subject-input">Subject</label>
-                                <input
-                                    id='subject-input'
-                                    type="text"
-                                    name='Subject'
-                                    placeholder='I loved your portfolio!'
-                                    {...register('Subject', { minLength: '2', maxLength: '50', required: true })}
-                                />
-                            </div>
                             <div className='message-form__container'>
                                 <label htmlFor="message-input">Message</label>
                                 <textarea
@@ -225,8 +215,15 @@ export const Talk = () => {
                                 </textarea>
                             </div>
                             <div className='send-form__container'>
-                                <button onClick={() => { handleErrors(errors) }}>
-                                    Shoot
+                                <button
+                                    onClick={() => { handleErrors(errors) }}
+                                    onMouseEnter={handleEnterIcon}
+                                    onMouseLeave={handleLeaveIcon}
+                                >
+                                    Send
+                                    <span>
+                                        <img ref={imgIconBtnRef} src={sendIcon} alt="send icon" />
+                                    </span>
                                 </button>
                             </div>
                         </form>

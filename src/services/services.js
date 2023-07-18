@@ -1,7 +1,7 @@
 const apiKey = '';
 const apiUrl = '';
 
-export const sendEmail = async (name, email, subject, message) => {
+export const sendEmail = async (name, email, message) => {
     const emailData = {
         sender: {
             name: name,
@@ -12,7 +12,7 @@ export const sendEmail = async (name, email, subject, message) => {
                 email: 'heisjuanda@gmail.com',
             },
         ],
-        subject: subject,
+        subject: 'Portfolio message',
         textContent: message,
     };
 

@@ -33,14 +33,24 @@
 }
 
 .project-page__section {
-    background-color: var(--secundary-background);
-    border: 1px solid transparent;
+    background-color: var(--main-background);
+    border: 1px solid var(--secundary-background);
 
     overflow-x: hidden;
     overflow-y: hidden;
 
     min-width: 100vw;
     min-height: 100vh;
+}
+
+.project-page__section>main {
+    background-color: var(--secundary-background);
+}
+
+.project-page__section>main>* {
+    opacity: 0;
+
+    animation: revealText 0.2s linear 0.3s forwards;
 }
 
 .project-page__section-title {
@@ -176,7 +186,7 @@
     width: 80%;
 
     margin-inline: auto;
-    margin-top: 8%;
+    margin-top: 4%;
 }
 
 .project-page__section-content>h2 {
@@ -267,7 +277,17 @@
     max-width: 600px;
     
     margin-inline: auto;
-    margin-bottom: 10%;
+}
+
+.sectuib-details__animation {
+    margin-inline: auto;
+    margin-bottom: 5%;
+
+    width: 10vw;
+    max-width: 80px;
+    min-width: 50px;
+
+    cursor: pointer;
 }
 
 .section-details__img {

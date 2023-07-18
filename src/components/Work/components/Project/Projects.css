@@ -33,7 +33,7 @@
 }
 
 .project-section__title h2 {
-    font-size: clamp(80px, 100vh, 150px);
+    font-size: clamp(80px, 100vh, 145px);
     font-weight: 100;
     font-family: 'cormorant';
     position: absolute;

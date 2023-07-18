@@ -55,6 +55,10 @@ export const About = () => {
             }
         };
 
+        const handlePageLoading = () => {
+            scroll.update();
+        };
+
         const handleResize = () => {
             if (scroll) {
                 scroll.update();
@@ -120,9 +124,7 @@ export const About = () => {
 
         window.innerWidth > 500 ? scroll.on('scroll', handleScroll) : scroll.off('scroll', handleScroll);
 
-        setTimeout(() => {
-            scroll ? scroll.update() : null;
-        }, 500);
+        window.onload = handlePageLoading;
 
         window.addEventListener('resize', handleResize);
 

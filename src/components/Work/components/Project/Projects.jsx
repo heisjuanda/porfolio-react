@@ -27,6 +27,10 @@ export const Projects = (props) => {
         }, 1005);
     }, [history, number, transition]);
 
+    const handleImgUpdates = useCallback(() => {
+        scroll.update();
+    }, [scroll]);
+
     useEffect(() => {
         if (width > 800) {
             targetImgRef.current = Array.from(document.querySelectorAll('.target-img'));
@@ -46,10 +50,6 @@ export const Projects = (props) => {
             if (targetImgRef.current.length > 0 && scroll) {
                 scroll.on('scroll', handleScroll);
             }
-        } else {
-            setTimeout(() => {
-                scroll ? scroll.update() : null;
-            }, 500);
         }
     }, [scroll, width]);
 
@@ -68,8 +68,17 @@ export const Projects = (props) => {
                 <article className='project-section__content'>
                     <div>
                         <div className='content-img__container'>
-                            <img className='target-img' src={images[0]} alt={`Project logo that describes my work`} />
-                            <img src={images[1]} alt={`Project image that describes my work`} />
+                            <img
+                                onLoad={handleImgUpdates}
+                                className='target-img'
+                                src={images[0]}
+                                alt={`Project logo that describes my work`}
+                            />
+                            <img
+                                onLoad={handleImgUpdates}
+                                src={images[1]}
+                                alt={`Project image that describes my work`}
+                            />
                         </div>
                         <div className='content-title__container' data-scroll data-scroll-direction="horizontal" data-scroll-speed={width > 801 ? "2" : number % 2 === 0 ? '-2' : '2'}>
                             <div className='container__title-date'>

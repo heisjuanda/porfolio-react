@@ -3,11 +3,13 @@ import { useEffect, useState, useRef, useCallback } from 'react';
 
 import getLetters from '../../../../helpers/getLetters';
 import LocomotiveScroll from 'locomotive-scroll';
+import Lottie from 'lottie-react';
 
 import { PROJECTS } from '../../../../constants';
 
 import arrowRight from '../../../../assets/images/icons/arrowRightW.png';
 import arrowDownW from '../../../../assets/images/icons/arrowDownW.png';
+import gitHubAnimation from '../../../../assets/animations/gitHubLink.json';
 
 import './ProjectPage.css';
 
@@ -19,9 +21,11 @@ export const ProjectPage = () => {
     const projectTitleRef = useRef([]);
     const transitionSectionRef = useRef();
     const animationTargetRef = useRef(null);
+    const loadImgRef = useRef([]);
 
     const [project, setProject] = useState({});
     const [titleProject, setTitleProject] = useState([]);
+    const [locomotive, setLocomotive] = useState();
 
     const handleNextProjectTransition = useCallback(() => {
         animationTargetRef.current = Array.from(document.querySelectorAll('.target-project__section'));
@@ -40,6 +44,25 @@ export const ProjectPage = () => {
             }, 1100);
         }
     }, [history, id]);
+
+    const handleImgLoading = useCallback((scroll) => {
+        loadImgRef.current = Array.from(document.querySelectorAll('.img-load__target'));
+        if (loadImgRef.current.length > 0) {
+            for (const img of loadImgRef.current) {
+                img.onload = () => {
+                    scroll.update();
+                }
+            }
+        }
+    }, []);
+
+    const handleGitLink = useCallback(() => {
+        window.open(project.gitLink, '_blank');
+    }, [project.gitLink]);
+
+    useEffect(() => {
+        handleImgLoading(locomotive);
+    }, [handleImgLoading, locomotive]);
 
     useEffect(() => {
         let scroll = null;
@@ -60,6 +83,7 @@ export const ProjectPage = () => {
                     multiplier: 2
                 },
             });
+            setLocomotive(scroll);
         };
 
         const handleResize = () => {
@@ -71,15 +95,14 @@ export const ProjectPage = () => {
         createScroll();
 
         setTimeout(() => {
-            scroll ? scroll.update() : null;
-
             document.querySelectorAll('a[href^="#"]').forEach(anchor => {
                 anchor.addEventListener('click', function (e) {
                     e.preventDefault();
                     scroll.scrollTo(this.getAttribute('href'));
                 });
             });
-        }, 500);
+        }, 50);
+
 
         window.addEventListener('resize', handleResize);
 
@@ -115,34 +138,40 @@ export const ProjectPage = () => {
         <>
             <div ref={transitionSectionRef} className='project-page__next-project-transition'></div>
             <section className='project-page__section'>
-                <header className='project-page__section-title'>
-                    <div>
-                        {titleProject.map((word, id) => {
-                            return (
-                                <h2
-                                    key={id}
-                                    className='title__target'
-                                >
-                                    {word.toUpperCase()}
-                                </h2>
-                            );
-                        })}
+                <main>
+                    <header className='project-page__section-title'>
+                        <div>
+                            {titleProject.map((word, id) => {
+                                return (
+                                    <h2
+                                        key={id}
+                                        className='title__target'
+                                    >
+                                        {word.toUpperCase()}
+                                    </h2>
+                                );
+                            })}
+                        </div>
+                    </header>
+                    <div className='about-project'>
+                        <p>{project.intro}</p>
+                        <div>
+                            <span>
+                                <a href="#about-project">
+                                    <img src={arrowDownW} alt="down arrow" />
+                                    <img src={arrowDownW} alt="down arrow" />
+                                </a>
+                            </span>
+                        </div>
+                        <div>
+                            <img
+                                className='img-load__target'
+                                src={project.demo}
+                                alt="Demo of my project"
+                            />
+                        </div>
                     </div>
-                </header>
-                <div className='about-project'>
-                    <p>{project.intro}</p>
-                    <div>
-                        <span>
-                            <a href="#about-project">
-                                <img src={arrowDownW} alt="down arrow" />
-                                <img src={arrowDownW} alt="down arrow" />
-                            </a>
-                        </span>
-                    </div>
-                    <div>
-                        <img src={project.demo} alt="Demo of my project" />
-                    </div>
-                </div>
+                </main>
                 <article className='project-page__section-content'>
                     <h2 id='about-project'>
                         ABOUT
@@ -209,12 +238,21 @@ export const ProjectPage = () => {
                     <p>
                         Discover detailed information about my most recent projects and see how I create aesthetically appealing and extremely effective websites
                     </p>
+                    <Lottie 
+                        className='sectuib-details__animation' 
+                        animationData={gitHubAnimation}
+                        onClick={handleGitLink} 
+                    />
                     <div className='section-details__img'>
                         {project.detailsImg ? (
                             project.detailsImg.map((img, id) => {
                                 return (
                                     <div key={id}>
-                                        <img src={img} alt="Project Demo device" />
+                                        <img
+                                            src={img}
+                                            alt="Project Demo device"
+                                            className='img-load__target'
+                                        />
                                     </div>
                                 );
                             })
