@@ -246,8 +246,12 @@ input:-webkit-autofill:active {
 
 @media screen and (max-width:500px){
     .talk-section__title>h2 {
-        margin-top: 55px;
-        margin-bottom: 55px;
+        margin-top: 50px;
+        margin-bottom: 50px;
+    }
+
+    .social-media {
+        margin-bottom: 20px;
     }
 }
 

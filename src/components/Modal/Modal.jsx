@@ -19,7 +19,6 @@ export const Modal = (props) => {
             modalBodyRef.current.classList.add('animation-hide');
             setTimeout(() => {
                 setShowModal(false);
-                //modalBodyRef.current.classList.remove('animation-hide');
             }, 505);
         }
     }, [setShowModal]);
@@ -27,6 +26,9 @@ export const Modal = (props) => {
     useEffect(() => {
         const isDefined = modalBodyRef.current;
         if (isDefined) {
+            window.innerWidth < 370 ? (
+                modalBodyRef.current.style.top = `${(window.innerHeight/2) - (modalBodyRef.current.offsetHeight)}px`
+            ) : null;
             modalBodyRef.current.classList.add('animation-show');
             setTimeout(() => {
                 modalBodyRef.current.classList.remove('animation-show');

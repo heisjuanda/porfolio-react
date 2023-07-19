@@ -47,10 +47,10 @@
     background-color: var(--secundary-background);
 }
 
-.project-page__section>main>* {
+.project-page__section>main>div {
     opacity: 0;
 
-    animation: revealText 0.2s linear 0.3s forwards;
+    animation: revealText 2s linear forwards;
 }
 
 .project-page__section-title {
@@ -83,8 +83,6 @@
     text-align: center;
 
     opacity: 0;
-
-    animation: revealText 100ms linear forwards;
 
     overflow: hidden;
 }

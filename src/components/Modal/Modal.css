@@ -115,7 +115,7 @@
 @media screen and (max-width:680px) {
     .modal-body {
         width: 40vw;
-        min-width: 260px;
+        min-width: 240px;
         height: 22vw;
         min-height: 143px;
     

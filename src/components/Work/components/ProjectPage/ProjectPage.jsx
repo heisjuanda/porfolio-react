@@ -122,9 +122,13 @@ export const ProjectPage = () => {
         projectTitleRef.current = Array.from(document.querySelectorAll('.title__target'));
         if (projectTitleRef.current.length > 0) {
             for (const word of projectTitleRef.current) {
+                word.style.opacity = '0';
                 getLetters(word, 'projectTitle-letters');
             }
             setTimeout(() => {
+                for (const word of projectTitleRef.current) {
+                    word.style.opacity = '1';
+                }
                 document.querySelectorAll('.projectTitle-letters')
                     .forEach((span) => {
                         span.style.transform = `translateY(0vw)`;
@@ -238,10 +242,10 @@ export const ProjectPage = () => {
                     <p>
                         Discover detailed information about my most recent projects and see how I create aesthetically appealing and extremely effective websites
                     </p>
-                    <Lottie 
-                        className='sectuib-details__animation' 
+                    <Lottie
+                        className='sectuib-details__animation'
                         animationData={gitHubAnimation}
-                        onClick={handleGitLink} 
+                        onClick={handleGitLink}
                     />
                     <div className='section-details__img'>
                         {project.detailsImg ? (
