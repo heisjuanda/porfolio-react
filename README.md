@@ -24,18 +24,18 @@ Welcome to my portfolio; in this repo you will find all of the materials and cod
 
 ## Page Speed Insights
 <h2>
-  <a target='_blank' href='https://pagespeed.web.dev/analysis/https-heisjuanda-netlify-app/2ttj0zob82?form_factor=desktop'>
+  <a target='_blank' href='https://pagespeed.web.dev/analysis/https-heisjuanda-netlify-app/fym2252ojz?form_factor=desktop'>
     Desktop
   </a>
 </h2>
 <center>
-  <img src='https://user-images.githubusercontent.com/63882053/254421410-d3ec78f8-abe1-4e56-a290-b190d5f88b02.png' alt='page speed index pc' />
+  <img src='https://user-images.githubusercontent.com/63882053/254724884-96a78658-4afc-4e9a-8993-8322995205c9.png' alt='page speed index pc' />
 </center>
 <h2>
-  <a target='_blank' href='https://pagespeed.web.dev/analysis/https-heisjuanda-netlify-app/2ttj0zob82?form_factor=mobile'>
+  <a target='_blank' href='https://pagespeed.web.dev/analysis/https-heisjuanda-netlify-app/fym2252ojz?form_factor=mobile'>
     Mobile
   </a>
 </h2>
 <center>
-  <img src='https://user-images.githubusercontent.com/63882053/254421619-05f805ae-f184-48ed-8084-e1df047ece17.png' alt='page speed index pc' />
+  <img src='https://user-images.githubusercontent.com/63882053/254724935-2aad5a25-1ed7-4590-b285-2d1c6985a9de.png' alt='page speed index pc' />
 </center>

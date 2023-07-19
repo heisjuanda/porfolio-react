@@ -117,8 +117,13 @@ export const TrailerMouse = (props) => {
                     style={{ opacity: opacity, transition: `opacity ${transition}s` }}
                 >
                     <span>
-                        {/*<i ref={icon} className="" id="trailer-icon"></i>*/}
-                        <img ref={icon} id="trailer-icon" src={''} alt="icon for trailer mouse" />
+                        <img 
+                            ref={icon} 
+                            id="trailer-icon" 
+                            src={''} 
+                            alt="icon for trailer mouse" 
+                            loading='lazy'
+                        />
                     </span>
                 </div>
             ) : null}

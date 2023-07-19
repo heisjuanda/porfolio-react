@@ -12,7 +12,9 @@
   "dependencies": {
     "@fortawesome/fontawesome-free": "^6.4.0",
     "@preact/signals": "^1.1.3",
+    "@rollup/plugin-dynamic-import-vars": "^2.0.4",
     "comlink": "^4.4.1",
+    "cssnano": "^6.0.1",
     "gsap": "^3.11.5",
     "locomotive-scroll": "^4.1.4",
     "lodash": "^4.17.21",
@@ -21,6 +23,7 @@
     "react-dom": "^18.2.0",
     "react-hook-form": "^7.44.3",
     "react-router-dom": "^6.11.2",
+    "rollup-plugin-terser": "^7.0.2",
     "split-type": "^0.3.3"
   },
   "devDependencies": {
