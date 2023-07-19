@@ -9,7 +9,7 @@ import Logo from '../../assets/images/projects/heisjuandaLogoW.webp';
 
 import './About.css';
 
-export const About = () => {
+const About = () => {
 
     const aboutMeRef = useRef();
     const myNameRef = useRef();
@@ -176,3 +176,5 @@ export const About = () => {
         </>
     );
 };
+
+export default About;

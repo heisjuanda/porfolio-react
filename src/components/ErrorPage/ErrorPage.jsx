@@ -6,7 +6,7 @@ import errorAnimation from '../../assets/animations/error404.json';
 
 import './ErrorPage.css';
 
-export const ErrorPage = () => {
+const ErrorPage = () => {
 
     const history = useNavigate();
 
@@ -46,3 +46,5 @@ export const ErrorPage = () => {
 
     );
 };
+
+export default ErrorPage;

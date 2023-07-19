@@ -11,7 +11,7 @@ import { PROJECTS } from '../../constants';
 
 import './Work.css';
 
-export const Work = () => {
+const Work = () => {
 
     const headerSectionRef = useRef();
     const animationRef = useRef();
@@ -165,3 +165,5 @@ export const Work = () => {
         </>
     );
 };
+
+export default Work;

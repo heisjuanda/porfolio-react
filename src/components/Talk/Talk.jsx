@@ -12,7 +12,7 @@ import sendW from '../../assets/images/icons/sendW.png';
 
 import './Talk.css';
 
-export const Talk = () => {
+const Talk = () => {
 
     const titleTalkSectionRef = useRef();
     const imgIconBtnRef = useRef();
@@ -233,3 +233,5 @@ export const Talk = () => {
         </>
     );
 };
+
+export default Talk;

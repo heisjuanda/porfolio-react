@@ -1,19 +1,19 @@
 import { useParams, useNavigate } from 'react-router-dom';
 import { useEffect, useState, useRef, useCallback } from 'react';
 
-import getLetters from '../../../../helpers/getLetters';
+import getLetters from '../../helpers/getLetters';
 import LocomotiveScroll from 'locomotive-scroll';
 import Lottie from 'lottie-react';
 
-import { PROJECTS } from '../../../../constants';
+import { PROJECTS } from '../../constants';
 
-import arrowRight from '../../../../assets/images/icons/arrowRightW.png';
-import arrowDownW from '../../../../assets/images/icons/arrowDownW.png';
-import gitHubAnimation from '../../../../assets/animations/gitHubLink.json';
+import arrowRight from '../../assets/images/icons/arrowRightW.png';
+import arrowDownW from '../../assets/images/icons/arrowDownW.png';
+import gitHubAnimation from '../../assets/animations/gitHubLink.json';
 
 import './ProjectPage.css';
 
-export const ProjectPage = () => {
+const ProjectPage = () => {
 
     const { id } = useParams();
     const history = useNavigate();
@@ -39,8 +39,12 @@ export const ProjectPage = () => {
             transitionSectionRef.current.style.backgroundColor = 'var(--secundary-background)';
 
             setTimeout(() => {
-                history(`/work/project/${isThere ? (parseInt(id) + 1) : 0}`);
-                history(0);
+                history(`../work/project/${isThere ? (parseInt(id) + 1) : 0}`, { replace: true });
+                transitionSectionRef.current.style.height = '0vh';
+                transitionSectionRef.current.style.backgroundColor = 'var(--main-background)';
+                for (const HTMLElement of animationTargetRef.current) {
+                    HTMLElement.style.opacity = '1';
+                }
             }, 1100);
         }
     }, [history, id]);
@@ -110,7 +114,7 @@ export const ProjectPage = () => {
             window.removeEventListener('resize', handleResize);
             scroll.destroy();
         };
-    }, []);
+    }, [id]);
 
     useEffect(() => {
         setProject(PROJECTS[id]);
@@ -285,3 +289,5 @@ export const ProjectPage = () => {
 
     );
 };
+
+export default ProjectPage;
