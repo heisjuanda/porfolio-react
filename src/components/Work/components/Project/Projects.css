@@ -2,6 +2,7 @@
     from {
         clip-path: inset(0% 0% 0% 100%);
     }
+
     to {
         clip-path: inset(0% 0% 0% 0%);
     }
@@ -141,9 +142,9 @@
 .container__des-see p {
     white-space: normal;
     text-align: left;
-    font-size: clamp(16px,1.8vw,18px);
+    font-size: clamp(16px, 1.8vw, 18px);
     font-family: 'aileron';
-    color: black;    
+    color: black;
 
     width: 100%;
 }
@@ -164,6 +165,12 @@
 
     margin-left: clamp(30px, 10%, 50px);
 
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 3px;
+
     transition: 0.3s;
 
     font-size: clamp(18px, 2vw, 20px);
@@ -174,6 +181,21 @@
     border: 1px solid black;
     background-color: transparent;
     color: black;
+}
+
+.container__des-see button span {
+    width: 1.8vw;
+    max-width: 18px;
+    min-width: 16px;
+
+    display: grid;
+    place-items: center;
+}
+
+.container__des-see button span>img {
+    width: 100%;
+
+    transition: 0.3s;
 }
 
 @media screen and (max-width:800px) {
@@ -215,7 +237,6 @@
         font-size: 55px;
 
         position: absolute;
-        /*top: clamp(-53px, -9vw, -145px);*/
         top: clamp(-10px, -2vw, -20px);
 
         border: 1px solid transparent;
@@ -282,7 +303,7 @@
     }
 }
 
-@media screen and (max-width:300px) {
+@media screen and (max-width:320px) {
     .project-section__title h2 {
         font-size: 40px;
     }

@@ -132,7 +132,6 @@ export const PROJECTS = [
             tech: [
                 `react V 18.2.0`,
                 `vite V 4.3.9`,
-                `fontawesome V 6.4.0`,
                 `gsap 3.11.5`,
                 `locomotive scroll V 4.1.4`,
                 `lodash V 4.17.21`,

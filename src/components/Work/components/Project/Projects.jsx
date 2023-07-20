@@ -3,6 +3,9 @@ import { debounce } from 'lodash';
 import { useEffect, useRef, useCallback } from 'react';
 import { useNavigate } from 'react-router-dom';
 
+import plusB from '../../../../assets/images/icons/plusB.png';
+import plusW from '../../../../assets/images/icons/plusW.png';
+
 import './Projects.css';
 
 export const Projects = (props) => {
@@ -19,6 +22,7 @@ export const Projects = (props) => {
     const history = useNavigate();
 
     const targetImgRef = useRef([]);
+    const iconBtnTargetRef = useRef([]);
 
     const handleSeeProject = useCallback(() => {
         transition();
@@ -28,8 +32,34 @@ export const Projects = (props) => {
     }, [history, number, transition]);
 
     const handleImgUpdates = useCallback(() => {
-        scroll.update();
+        scroll ? scroll.update() : null;
     }, [scroll]);
+
+    const handleIconColorEnter = useCallback(() => {
+        iconBtnTargetRef.current = document.querySelectorAll('.icon-btn__target');
+        if (iconBtnTargetRef.current.length > 0) {
+            for (const img of iconBtnTargetRef.current) {
+                img.style.opacity = '0';
+                setTimeout(() => {
+                    img.style.opacity = '1';
+                    img.setAttribute('src', plusB);
+                }, 150);
+            }
+        }
+    }, []);
+
+    const handleIconColorLeave = useCallback(() => {
+        iconBtnTargetRef.current = document.querySelectorAll('.icon-btn__target');
+        if (iconBtnTargetRef.current.length > 0) {
+            for (const img of iconBtnTargetRef.current) {
+                img.style.opacity = '0';
+                setTimeout(() => {
+                    img.style.opacity = '1';
+                    img.setAttribute('src', plusW);
+                }, 150);
+            }
+        }
+    }, []);
 
     useEffect(() => {
         if (width > 800) {
@@ -95,8 +125,19 @@ export const Projects = (props) => {
                                     {description}
                                 </p>
                             </div>
-                            <button className='interactable' data-type='button-click' onClick={handleSeeProject}>
-                                See more <span><i className="fa-light fa-plus"></i></span>
+                            <button
+                                className='interactable'
+                                data-type='button-click'
+                                onClick={handleSeeProject}
+                                onMouseEnter={handleIconColorEnter}
+                                onMouseLeave={handleIconColorLeave}
+                                onTouchStart={handleIconColorEnter}
+                                onTouchEnd={handleIconColorLeave}
+                            >
+                                See more
+                                <span>
+                                    <img className='icon-btn__target' src={plusW} alt="plus icon" />
+                                </span>
                             </button>
                         </div>
                     </div>

@@ -19,7 +19,7 @@ export const TrailerMouse = (props) => {
     const [maxSize, setMaxSize] = useState(0);
     const [minSize, setMinSize] = useState(0);
 
-    const [isMobile, setIsMobile] = useState(false);
+    const [hasMouse, setHasMouse] = useState(false);
 
     const getTrailerClass = useCallback(type => {
         const options = {
@@ -31,36 +31,38 @@ export const TrailerMouse = (props) => {
     }, []);
 
     const animateTrailer = useCallback((e, interacting) => {
-        const x = e.clientX - (trailer.current.offsetWidth / 2),
-            y = e.clientY - (trailer.current.offsetHeight / 2);
-        if (window.innerWidth < 550) {
-            setMaxSize(0.63);
-            setMinSize(0.15);//0.15
-        } else if (window.innerWidth < 700) {
-            setMaxSize(0.75);
-            setMinSize(0.2);//0.20
-        } else if (window.innerWidth < 1000) {
-            setMaxSize(0.87);
-            setMinSize(0.2);//0.20
-        } else {
-            setMaxSize(1);
-            setMinSize(0.25);//0.25
+        if (trailer.current) {
+            const x = e.clientX - (trailer.current.offsetWidth / 2),
+                y = e.clientY - (trailer.current.offsetHeight / 2);
+            if (window.innerWidth < 550) {
+                setMaxSize(0.63);
+                setMinSize(0.15);//0.15
+            } else if (window.innerWidth < 700) {
+                setMaxSize(0.75);
+                setMinSize(0.2);//0.20
+            } else if (window.innerWidth < 1000) {
+                setMaxSize(0.87);
+                setMinSize(0.2);//0.20
+            } else {
+                setMaxSize(1);
+                setMinSize(0.25);//0.25
+            }
+            const keyframes = {
+                transform: `translate(${x}px, ${y}px) scale(${interacting ? maxSize : minSize})`,
+            }
+            trailer.current.animate(keyframes, {
+                duration: interacting ? 2000 : 800,
+                fill: "forwards",
+            });
         }
-        const keyframes = {
-            transform: `translate(${x}px, ${y}px) scale(${interacting ? maxSize : minSize})`,
-        }
-        trailer.current.animate(keyframes, {
-            duration: interacting ? 2000 : 800,
-            fill: "forwards",
-        });
 
     }, [maxSize, minSize]);
 
     useEffect(() => {
-        setIsMobile(!(/Android/i.test(navigator.userAgent)) && !(/iPhone|iPad|iPod/i.test(navigator.userAgent)) && !(/Tablet/i.test(navigator.userAgent)));
+        setHasMouse(!(/Android/i.test(navigator.userAgent)) && !(/iPhone|iPad|iPod/i.test(navigator.userAgent)) && !(/Tablet/i.test(navigator.userAgent)));
 
         const handleResize = () => {
-            setIsMobile(!(/Android/i.test(navigator.userAgent)) && !(/iPhone|iPad|iPod/i.test(navigator.userAgent)) && !(/Tablet/i.test(navigator.userAgent)));
+            setHasMouse(!(/Android/i.test(navigator.userAgent)) && !(/iPhone|iPad|iPod/i.test(navigator.userAgent)) && !(/Tablet/i.test(navigator.userAgent)));
         };
 
         window.addEventListener('resize', handleResize);
@@ -68,10 +70,10 @@ export const TrailerMouse = (props) => {
         return () => {
             window.removeEventListener('resize', handleResize);
         };
-    }, [isMobile])
+    }, []);
 
     useEffect(() => {
-        if (isMobile) {
+        if (hasMouse) {
             window.onmousemove = e => {
                 const interactable = e.target.closest(".interactable"),
                     interacting = interactable !== null;
@@ -106,22 +108,22 @@ export const TrailerMouse = (props) => {
                 window.onmousemove = null;
             }
         }
-    }, [animateTrailer, getTrailerClass, isMobile]);
+    }, [animateTrailer, getTrailerClass, hasMouse]);
 
     return (
         <>
-            {isMobile ? (
+            {hasMouse ? (
                 <div
                     ref={trailer}
                     id="trailer"
                     style={{ opacity: opacity, transition: `opacity ${transition}s` }}
                 >
                     <span>
-                        <img 
-                            ref={icon} 
-                            id="trailer-icon" 
-                            src={''} 
-                            alt="icon for trailer mouse" 
+                        <img
+                            ref={icon}
+                            id="trailer-icon"
+                            src={''}
+                            alt="icon for trailer mouse"
                             loading='lazy'
                         />
                     </span>

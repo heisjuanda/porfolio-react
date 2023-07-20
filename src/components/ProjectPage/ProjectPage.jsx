@@ -133,11 +133,10 @@ const ProjectPage = () => {
                 for (const word of projectTitleRef.current) {
                     word.style.opacity = '1';
                 }
-                document.querySelectorAll('.projectTitle-letters')
-                    .forEach((span) => {
-                        span.style.transform = `translateY(0vw)`;
-                        span.style.opacity = `1`;
-                    });
+                for (const span of document.querySelectorAll('.projectTitle-letters')) {
+                    span.style.transform = `translateY(0vw)`;
+                    span.style.opacity = `1`;
+                }
             }, 100);
         }
     }, [titleProject]);

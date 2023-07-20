@@ -130,6 +130,7 @@ const About = () => {
 
         return () => {
             window.removeEventListener('resize', handleResize);
+            window.onload = null;
             scroll.destroy();
         };
     }, []);
