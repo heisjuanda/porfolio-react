@@ -87,14 +87,11 @@
     border: 1px solid transparent;
 }
 
-.modal-close>span>i {
-    font-size: 20px;
-}
+.modal-close>span>img {
+    width: 20px;
+    height: 20px;
 
-.modal-body__symbol>span>i {
-    color: white;
-
-    font-size: clamp(30px,4vw,40px);
+    transition: 0.15s;
 }
 
 .modal-body__title>h2 {

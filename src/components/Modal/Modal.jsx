@@ -1,6 +1,9 @@
 import PropTypes from 'prop-types';
 import { useEffect, useRef, useCallback } from 'react';
 
+import closeB from '../../assets/images/icons/closeB.png';
+import closeW from '../../assets/images/icons/closeW.png';
+
 import './Modal.css';
 
 export const Modal = (props) => {
@@ -12,6 +15,7 @@ export const Modal = (props) => {
     } = props;
 
     const modalBodyRef = useRef();
+    const closeModalImgRef = useRef();
 
     const handleCloseModal = useCallback(() => {
         const isDefined = modalBodyRef.current;
@@ -23,11 +27,31 @@ export const Modal = (props) => {
         }
     }, [setShowModal]);
 
+    const handleImgColorEnter = useCallback(() => {
+        if (closeModalImgRef.current) {
+            closeModalImgRef.current.style.opcity = '0';
+            setTimeout(() => {
+                closeModalImgRef.current.style.opcity = '1';
+                closeModalImgRef.current.setAttribute('src',closeB);
+            }, 100);
+        }
+    }, []);
+
+    const handleImgColorLeave = useCallback(() => {
+        if (closeModalImgRef.current) {
+            closeModalImgRef.current.style.opcity = '0';
+            setTimeout(() => {
+                closeModalImgRef.current.style.opcity = '1';
+                closeModalImgRef.current.setAttribute('src',closeW);
+            }, 100);
+        }
+    }, []);
+
     useEffect(() => {
         const isDefined = modalBodyRef.current;
         if (isDefined) {
             window.innerWidth < 370 ? (
-                modalBodyRef.current.style.top = `${(window.innerHeight/2) - (modalBodyRef.current.offsetHeight)}px`
+                modalBodyRef.current.style.top = `${(window.innerHeight / 2) - (modalBodyRef.current.offsetHeight)}px`
             ) : null;
             modalBodyRef.current.classList.add('animation-show');
             setTimeout(() => {
@@ -39,8 +63,14 @@ export const Modal = (props) => {
     return (
         <div className='modal-container'>
             <div ref={modalBodyRef} className='modal-body'>
-                <button className='modal-close' onClick={handleCloseModal}>
-                    <span><i className="fa-solid fa-xmark"></i></span>
+                <button
+                    className='modal-close'
+                    onClick={handleCloseModal}
+                    onMouseEnter={handleImgColorEnter}
+                    onMouseLeave={handleImgColorLeave} 
+                >
+                    <span>
+                        <img ref={closeModalImgRef} src={closeW} alt="close icon x-mark" /></span>
                 </button>
                 <div className='modal-body__symbol'>
                     {type === 'check' ? (
