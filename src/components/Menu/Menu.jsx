@@ -7,6 +7,7 @@ export const Menu = () => {
     const history = useNavigate();
 
     const [isOpen, setIsOpen] = useState(false);
+    const [isDisabledBtn, setIsDisabledBtn] = useState(false);
 
     const firstLineRef = useRef();
     const secondLineRef = useRef();
@@ -41,8 +42,12 @@ export const Menu = () => {
     const handleMenu = useCallback(() => {
         const isDefined = menuContainerRef.current && menuLinkOptionsRef.current && menuOptionsContainerRef.current && burgerBtnRef.current;
         if (isDefined) {
+            setIsDisabledBtn(true);
+            setTimeout(() => {
+                setIsDisabledBtn(false);
+            }, 400);
             if (!isOpen) {
-                menuContainerRef.current.style.animation = 'showMenuContainer 0.3s ease-in-out forwards';
+                menuContainerRef.current.style.animation = 'showMenuContainer 0.4s ease-in-out forwards';
                 handleMenuBton(!isOpen);
                 setIsOpen(!isOpen);
                 menuLinkOptionsRef.current.forEach((option) => {
@@ -59,12 +64,12 @@ export const Menu = () => {
                         menuOptionsContainerRef.current.style.display = 'none';
                     }, 200);
                 });
-                menuContainerRef.current.style.animation = 'hideMenuContainer 0.3s ease-in-out forwards';
+                menuContainerRef.current.style.animation = 'hideMenuContainer 0.4s ease-in-out forwards';
                 handleMenuBton(!isOpen);
                 setIsOpen(!isOpen);
                 setTimeout(() => {
                     menuContainerRef.current.style.transform = 'translate(-100%, -100%) rotate(45deg)';
-                }, 300);
+                }, 400);
             }
         }
     }, [isOpen, menuContainerRef, menuLinkOptionsRef, menuOptionsContainerRef, handleMenuBton, setIsOpen]);
@@ -89,19 +94,26 @@ export const Menu = () => {
                 menuOptionsContainerRef.current.style.display = 'none';
             }, 200);
 
-            menuContainerRef.current.style.animation = 'hideMenuContainer 0.3s ease-in-out forwards';
+            menuContainerRef.current.style.animation = 'hideMenuContainer 0.4s ease-in-out forwards';
             handleMenuBton(!isOpen);
             setIsOpen(prevIsOpen => !prevIsOpen);
 
             setTimeout(() => {
                 menuContainerRef.current.style.transform = 'translate(-100%, -100%) rotate(45deg)';
-            }, 300);
+            }, 400);
         }
     }, [isOpen, menuContainerRef, menuLinkOptionsRef, menuOptionsContainerRef, handleMenuBton, setIsOpen]);
 
     return (
         <>
-            <button role='button' title='burger-menu' ref={burgerBtnRef} className="burger-btn interactable" onClick={handleMenu}>
+            <button 
+                role='button' 
+                title='burger-menu' 
+                ref={burgerBtnRef} 
+                className="burger-btn interactable" 
+                onClick={handleMenu}
+                disabled={isDisabledBtn}
+            >
                 <span ref={firstLineRef} id='burger-btn__one'></span>
                 <span ref={secondLineRef} id='burger-btn__two'></span>
                 <span ref={thirdLineRef} id='burger-btn__three'></span>
