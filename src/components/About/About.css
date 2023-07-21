@@ -47,7 +47,7 @@
 
     animation: about-revealTitle 100ms linear forwards;
 
-    height: 18vw;
+    height: 15vw;
 }
 
 .myName-letters {
@@ -55,6 +55,7 @@
     transform: translateY(18vw) rotate(10deg);
     transition: 1s;
     transition-delay: 0.3s;
+    transition-timing-function: ease-out;
 }
 
 .section-content {

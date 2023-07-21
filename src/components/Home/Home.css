@@ -27,7 +27,7 @@
         background-color: var(--main-background);
     }
     100% {
-        width: 115vw;
+        width: 100vw;
         background-color: var(--main-background);
     }
 }
@@ -149,7 +149,7 @@
     display: inline-block;
 
     transform: translateY(20vw);
-    animation: name-reveal 1s ease 0.5s forwards;
+    animation: name-reveal 1s ease-out 0.5s forwards;
 }
 
 .home-about__transition {

@@ -9,7 +9,7 @@
 }
 
 .show-img {
-    animation: showImg 0.3s ease forwards;
+    animation: showImg 0.3s ease-in-out forwards;
 }
 
 .project-section {

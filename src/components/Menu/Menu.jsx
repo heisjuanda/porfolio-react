@@ -42,7 +42,7 @@ export const Menu = () => {
         const isDefined = menuContainerRef.current && menuLinkOptionsRef.current && menuOptionsContainerRef.current && burgerBtnRef.current;
         if (isDefined) {
             if (!isOpen) {
-                menuContainerRef.current.style.animation = 'showMenuContainer 0.3s linear forwards';
+                menuContainerRef.current.style.animation = 'showMenuContainer 0.3s ease-in-out forwards';
                 handleMenuBton(!isOpen);
                 setIsOpen(!isOpen);
                 menuLinkOptionsRef.current.forEach((option) => {
@@ -59,7 +59,7 @@ export const Menu = () => {
                         menuOptionsContainerRef.current.style.display = 'none';
                     }, 200);
                 });
-                menuContainerRef.current.style.animation = 'hideMenuContainer 0.3s linear forwards';
+                menuContainerRef.current.style.animation = 'hideMenuContainer 0.3s ease-in-out forwards';
                 handleMenuBton(!isOpen);
                 setIsOpen(!isOpen);
                 setTimeout(() => {
@@ -89,7 +89,7 @@ export const Menu = () => {
                 menuOptionsContainerRef.current.style.display = 'none';
             }, 200);
 
-            menuContainerRef.current.style.animation = 'hideMenuContainer 0.3s linear forwards';
+            menuContainerRef.current.style.animation = 'hideMenuContainer 0.3s ease-in-out forwards';
             handleMenuBton(!isOpen);
             setIsOpen(prevIsOpen => !prevIsOpen);
 

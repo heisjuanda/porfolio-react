@@ -1,5 +1,5 @@
-const apiKey = '';
-const apiUrl = '';
+const apiKey = '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';
+const apiUrl = 'https://api.sendinblue.com/v3/smtp/email';
 
 export const sendEmail = async (name, email, message) => {
     const emailData = {

@@ -94,6 +94,7 @@
     transition: 1s;
     opacity: 0;
     transition-delay: 0.2s;
+    transition-timing-function: ease;
 }
 
 .about-project {
