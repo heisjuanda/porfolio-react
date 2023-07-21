@@ -406,6 +406,7 @@
 
     transition: height 0.9s, background-color 0.5s;
     transition-delay: 0.3s;
+    transition-timing-function: ease-in-out;
 
     position: absolute;
     z-index: 99;
