@@ -97,7 +97,7 @@ export const Projects = (props) => {
                 </header>
                 <article className='project-section__content'>
                     <div>
-                        <div className='content-img__container'>
+                        <div data-type='img-work' className='content-img__container interactable'>
                             <img
                                 onLoad={handleImgUpdates}
                                 className='target-img'

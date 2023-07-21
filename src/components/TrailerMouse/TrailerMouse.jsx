@@ -102,6 +102,12 @@ export const TrailerMouse = (props) => {
                     trailer.current.style.border = 'none';
                     trailer.current.style.backgroundColor = 'white';
                 }
+
+                if (trailer.current.dataset.type === 'img-work') {
+                    trailer.current.style.opacity = '0';
+                } else {
+                    trailer.current.style.opacity = '1';
+                }
             }
 
             return () => {
