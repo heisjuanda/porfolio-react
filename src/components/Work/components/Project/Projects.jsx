@@ -28,7 +28,7 @@ export const Projects = (props) => {
         transition();
         setTimeout(() => {
             history(`/work/project/${number - 1}`);
-        }, 1005);
+        }, 1610);
     }, [history, number, transition]);
 
     const handleImgUpdates = useCallback(() => {

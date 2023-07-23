@@ -4,6 +4,7 @@ import { useCallback, useRef, useState, useEffect } from 'react';
 import { TrailerMouse } from '../TrailerMouse/TrailerMouse';
 
 import getLetters from '../../helpers/getLetters';
+import { gsap } from 'gsap';
 
 import logo from '../../assets/images/projects/heisjuandaLogo.webp';
 import cube from '../../assets/images/icons/cubeW.png';
@@ -17,16 +18,28 @@ export const Home = () => {
 
     const animationTransitionRef = useRef();
     const homeNameRef = useRef();
+    const svgRef = useRef();
 
     const [wasAnimated, setWasAnimated] = useState(false);
 
     const handleGoToAbout = useCallback(() => {
-        if (animationTransitionRef.current) {
-            animationTransitionRef.current.style.animation = 'homeAbout-transition 0.9s ease forwards';
+        const tl = gsap.timeline();
+        if (svgRef.current && animationTransitionRef.current) {
+            const curve = "M0 502S175 272 500 272s500 230 500 230V0H0Z";
+            const flat = "M0 2S175 1 500 1s500 1 500 1V0H0Z";
+            tl.to(svgRef.current, {
+                duration: 0.8,
+                attr: { d: curve },
+                ease: "power3.in",
+            }).to(svgRef.current, {
+                duration: 0.8,
+                attr: { d: flat },
+                ease: "power3.out",
+            });
             setWasAnimated(true);
             setTimeout(() => {
                 history('/about');
-            }, 1050);
+            }, 1610);
         }
     }, [history]);
 
@@ -41,9 +54,13 @@ export const Home = () => {
 
     return (
         <section className='home-section'>
-            <div ref={animationTransitionRef} className='home-about__transition'></div>
+            <div ref={animationTransitionRef} className="loader-wrap">
+                <svg viewBox="0 0 1000 1000" preserveAspectRatio="none">
+                    <path ref={svgRef} d="M0,1005S175,995,500,995s500,5,500,5V0H0Z"></path>
+                </svg>
+            </div>
             {wasAnimated ? (
-                <TrailerMouse opacity={'0'} transition={'0.8'}/>
+                <TrailerMouse opacity={'0'} transition={'0.8'} />
             ) : (
                 <TrailerMouse />
             )}

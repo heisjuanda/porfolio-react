@@ -19,6 +19,9 @@
     overflow-x: hidden;
     overflow-y: hidden;
 
+    transition: .7s;
+    transition-timing-function: ease;
+
     background-color: var(--main-background);
 }
 
@@ -72,14 +75,31 @@
     background-color: black;
 }
 
-.error-section__transition {
+.loader-wrap__errorP {
     position: absolute;
-    left: 0;
-    top: 0;
-    z-index: 201;
+    z-index: 0;
 
-    width: 0vw;
     height: 100vh;
+    width: 100vw;
 
-    background-color: var(--main-background);
+    display: flex;
+    overflow: hidden;
+    align-items: center;
+    justify-content: center;
+    
+    background: transparent;
+
+    transform: rotate(180deg);
+}
+
+.loader-wrap__errorP svg {
+    position: absolute;
+    z-index: 250;
+    top: 0;
+
+    width: 100vw;
+    height: 110vh;
+    
+    fill: white;
+    background-color: rgb(15,15,15);
 }
